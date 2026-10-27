@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Conheça o StudyPlaza, uma plataforma de aprendizado colaborativo com quizzes personalizados, grupos de estudo e muito mais." />
+    <meta name="keywords" content="Estudo, Colaborativo, Plataforma, Quiz, Cursos, Comunidade, Educação" />
+    <meta name="author" content="StudyPlaza Team" />
+    <title>StudyPlaza - Plataforma de Aprendizado Colaborativo</title>
+    <link rel="icon" href="../img/Logo_Fundo_Roxa.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/sobrenos.css">
+    <link rel="stylesheet" href="../css/btnAcessibilidade.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html" aria-label="Voltar para página inicial">
+                <img src="../img/Logo.svg" alt="Logo Study Plaza" />
+                <h1>Study Plaza</h1>
+            </a>
+        </div>
+
+        <button class="hamburger" aria-expanded="false" aria-controls="menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+
+        <nav class="menu" id="menu-principal" aria-label="Menu principal">
+
+            <!-- BOTÃO FECHAR (mobile) -->
+            <button class="fecharMenu" aria-label="Fechar menu">&times;</button>
+
+            <!-- LINKS PRINCIPAIS -->
+            <div class="menu-links">
+                <a href="grupos.html" class="linkMenu">
+                    <i class="fa-solid fa-people-group"></i>
+                    <span>Grupos</span>
+                </a>
+
+                <a href="painel.html" class="linkMenu">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Painel</span>
+                </a>
+
+                <a href="cursos.html" class="linkMenu">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Cursos</span>
+                </a>
+                <a href="http://localhost:9000" class="linkMenu destaque">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Chat</span>
+                </a>
+
+            </div>
+
+            <!-- AÇÕES / USUÁRIO -->
+            <div class="menu-acoes">
+
+                <a href="sobrenos.html" class="linkMenu">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Sobre</span>
+                </a>
+
+                <!-- PERFIL -->
+                <div class="dropdown-perfil">
+                    <button class="perfil-btn" aria-expanded="false">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span>Perfil</span>
+                        <i class="fa-solid fa-chevron-down seta"></i>
+                    </button>
+
+                    <div class="dropdown-conteudo">
+                        <a href="perfil.html">
+                            <i class="fa-solid fa-user"></i> Meu Perfil
+                        </a>
+
+                        <a href="cursosinscritos.html">
+                            <i class="fa-solid fa-book"></i> Meus Cursos
+                        </a>
+
+                        <hr>
+
+                        <a href="#" id="logout-btn" class="logout">
+                            <i class="fa-solid fa-right-from-bracket"></i> Sair
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <article>
+                <!-- Container VLibras -->
+                <div vw class="enabled">
+                    <div vw-access-button class="active"></div>
+                    <div vw-plugin-wrapper>
+                        <div class="vw-plugin-top-wrapper"></div>
+                    </div>
+                </div>
+                <div class="overlay"></div>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+                    <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+                        <img src="../img/icon.svg" alt="símbolo da onu" />
+                    </button>
+                </div>
+
+                <div id="barra" class="divbarradeacessibilidade">
+                    <button onclick="desativarbarra()" class="botaoativacaobarra">
+                        <img src="../img/icon.svg" alt="símbolo da onu" />
+                    </button>
+
+                    <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade">
+                        <img src="../img/lupa-.svg" alt="Lupa com um - no centro" />
+                    </button>
+
+                    <button onclick="zoommais()" class="funcaoesbarradeacessibilidade">
+                        <img src="../img/lupa+.svg" alt="Lupa com um + no centro" />
+                    </button>
+
+                    <!-- 🔘 Botão do switch -->
+                    <button id="theme-toggle" class="theme-toggle">
+                        <span id="icon" class="sun">☀️</span>
+                    </button>
+                </div>
+            </article>
+        </section>
+
+        <section class="sobre-nos">
+            <div class="intro-sobre">
+                <div class="texto-sobre">
+                    <h2 data-translate="sobrenos.sobre.title">Sobre o Study Plaza</h2>
+                    <p data-translate="sobrenos.sobre.text">
+                        No Study Plaza, acreditamos que o aprendizado se torna mais eficiente e motivador quando é
+                        compartilhado. Sabemos que muitos estudantes enfrentam desafios ao estudar sozinhos, como falta
+                        de organização, acesso a bons materiais ou dificuldade em se conectar com outras pessoas.
+
+                        Por isso, criamos uma plataforma que promove o aprendizado colaborativo, onde os usuários podem
+                        participar de grupos de estudo, compartilhar materiais, trocar mensagens e crescer juntos em um
+                        ambiente respeitoso e inclusivo.
+
+                        Além disso, contamos com o apoio de uma inteligência artificial que analisa as postagens dos
+                        grupos e gera quizzes personalizados, ajudando os usuários a testarem seus conhecimentos de
+                        forma prática e interativa.
+
+                        Nosso objetivo é construir uma comunidade ativa e engajada no compartilhamento de conhecimento,
+                        tornando o estudo mais acessível, dinâmico e eficiente para todos.
+                    </p>
+                </div>
+                <div class="imagem-sobre">
+                    <img src="../img/Logo_Fundo_Roxa.png" alt="Logo da StudyPlaza">
+                </div>
+            </div>
+        </section>
+
+        <section class="integrantes">
+            <h2 data-translate="sobrenos.equipe.title">Conheça nossa equipe</h2>
+            <div class="cards-integrantes">
+
+                <!-- Integrante 1 -->
+                <div class="card-integrante">
+                    <img src="../img/CartoonLuiz.png" alt="Integrante 1">
+                    <h3>Luiz Gustavo</h3>
+                    <button onclick="abrirModal('modalLuiz')" data-translate="sobrenos.ver.integrante">Ver sobre o
+                        integrante</button>
+                </div>
+
+                <!-- Integrante 2 -->
+                <div class="card-integrante">
+                    <img src="../img/CartoonBianca.png" alt="Integrante 2">
+                    <h3>Bianca</h3>
+                    <button onclick="abrirModal('modalBianca')" data-translate="sobrenos.ver.integrante">Ver sobre o
+                        integrante</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <!-- Modais dos integrantes -->
+            <div id="modalLuiz" class="modal-integrante">
+                <div class="modal-conteudo">
+                    <img src="../img/CartoonLuiz.png" class="mini-img" alt="Luiz Gustavo">
+                    <div>
+                        <h3>Luiz Gustavo</h3>
+                        <p data-translate="sobrenos.luiz.desc">Sou Luiz Gustavo, estudante de TI que gosta muito de
+                            desenvolvimento e inovação. Tenho foco em criar soluções acessíveis, organizadas e
+                            elegantes, com atenção especial à experiência do usuário. Busco constantemente me superar,
+                            aprendendo novas tecnologias e aplicando-as para entregar projetos funcionais e impactantes.
+                            Responsável pelo front-end e acessibilidade do projeto. Sempre em busca de surpreender
+                            através da tecnologia.</p>
+                    </div>
+                    <button class="fechar-modal" onclick="fecharModal('modalLuiz')">✕</button>
+                </div>
+            </div>
+
+            <div id="modalBianca" class="modal-integrante">
+                <div class="modal-conteudo">
+                    <img src="../img/CartoonBianca.png" class="mini-img" alt="Bianca">
+                    <div>
+                        <h3>Bianca</h3>
+                        <p data-translate="sobrenos.bianca.desc">Sou a Bianca, estudante de TI, gosto de deixar tudo
+                            mais intuitivo e bonito, pensando no público geral. Responsável pelo front-end e
+                            acessibilidade do projeto em colaboração com a equipe. Estou sempre aprendendo, testando,
+                            quebrando a cabeça, para entregar um trabalho que realmente faça a diferença.</p>
+                    </div>
+                    <button class="fechar-modal" onclick="fecharModal('modalBianca')">✕</button>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <div class="gtranslate_wrapper"></div>
+    <footer>
+        <section class="footer-container">
+            <article class="footer-section">
+                <div class="nomeLogo">
+                    <img class="logoFooter" src="../img/Logo.svg" alt="Logo do site" />
+                    <h3 class="textLogoFooter">Study Plaza</h3>
+                </div>
+                <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.
+                </p>
+                <div class="social-icons">
+                    <p> Quer conhecer um pouco mais de nós?
+                        Conheça nosso
+
+                        <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                </div>
+                </p>
+            </article>
+        </section>
+        <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+    </footer>
+
+    <script> window.chtlConfig = { chatbotId: "1666361565" } </script>
+    <script async data-id="1666361565" id="chtl-script" type="text/javascript"
+        src="https://chatling.ai/js/embed.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="js/geral.js"></script>
+    <script src="../js/alterarTemas.js"></script>
+    <script src="../js/sobrenos.js"></script>
+    <script src="../js/acessibilidade.js"></script>
+    <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+
+</html>

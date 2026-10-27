@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Encontre grupos de estudo, filtre por temas e participe da comunidade colaborativa da StudyPlaza." />
+  <meta name="keywords" content="grupos de estudo, comunidade, colaboração, aprendizagem" />
+  <meta name="author" content="StudyPlaza" />
+  <title>Grupos de Estudo - StudyPlaza</title>
+  <link rel="icon" href="../img/Logo_Fundo_Roxa.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/grupos.css" />
+  <link rel="stylesheet" href="../css/btnAcessibilidade.css">
+  <!--
+    Cabeçalho (head):
+    - Meta tags definem charset, responsividade e informações SEO básicas.
+    - Ordem dos CSS: style.css (global) -> grupos.css (específico), para permitir sobrescritas.
+    - Font Awesome via CDN para ícones; manter integrity/crossorigin em produção quando possível.
+  -->
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html" aria-label="Voltar para página inicial">
+        <img src="../img/Logo.svg" alt="Logo Study Plaza" />
+        <h1>Study Plaza</h1>
+      </a>
+    </div>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <nav class="menu" id="menu-principal" aria-label="Menu principal">
+
+      <!-- BOTÃO FECHAR (mobile) -->
+      <button class="fecharMenu" aria-label="Fechar menu">&times;</button>
+
+      <!-- LINKS PRINCIPAIS -->
+      <div class="menu-links">
+        <a href="grupos.html" class="linkMenu">
+          <i class="fa-solid fa-people-group"></i>
+          <span>Grupos</span>
+        </a>
+
+        <a href="painel.html" class="linkMenu">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Painel</span>
+        </a>
+
+        <a href="cursos.html" class="linkMenu">
+          <i class="fa-solid fa-book"></i>
+          <span>Cursos</span>
+        </a>
+
+        <a href="http://localhost:9000" class="linkMenu destaque">
+          <i class="fa-solid fa-comments"></i>
+          <span>Chat</span>
+        </a>
+      </div>
+
+      <!-- AÇÕES / USUÁRIO -->
+      <div class="menu-acoes">
+
+        <a href="sobrenos.html" class="linkMenu">
+          <i class="fa-solid fa-users"></i>
+          <span>Sobre</span>
+        </a>
+
+        <!-- PERFIL -->
+        <div class="dropdown-perfil">
+          <button class="perfil-btn" aria-expanded="false">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>Perfil</span>
+            <i class="fa-solid fa-chevron-down seta"></i>
+          </button>
+
+          <div class="dropdown-conteudo">
+            <a href="perfil.html">
+              <i class="fa-solid fa-user"></i> Meu Perfil
+            </a>
+
+            <a href="cursosinscritos.html">
+              <i class="fa-solid fa-book"></i> Meus Cursos
+            </a>
+
+            <hr>
+
+            <a href="#" id="logout-btn" class="logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <section>
+      <article>
+        <!-- Barra de acessibilidade compacta:
+             - botaobarra aciona ativarbarra() em acessibilidade.js para mostrar a barra completa. -->
+        <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+          <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra"
+            aria-label="Abrir barra de acessibilidade">
+            <img src="../img/icon.svg" alt="símbolo da ONU" />
+          </button>
+        </div>
+
+        <!-- Barra completa de acessibilidade:
+             - Controles vinculados às funções zoommais()/zoommenos() em acessibilidade.js.
+             - Botão de tema (id=theme-toggle) controlado por alterarTemas.js.
+             - Usar aria-labels e alt em imagens para compatibilidade com leitores de tela. -->
+        <div id="barra" class="divbarradeacessibilidade" aria-hidden="true">
+          <button onclick="desativarbarra()" class="botaoativacaobarra" aria-label="Fechar barra de acessibilidade">
+            <img src="../img/icon.svg" alt="símbolo da ONU" />
+          </button>
+
+          <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade" aria-label="Diminuir fonte">
+            <img src="../img/lupa-.svg" alt="Lupa com um - no centro" />
+          </button>
+
+          <button onclick="zoommais()" class="funcaoesbarradeacessibilidade" aria-label="Aumentar fonte">
+            <img src="../img/lupa+.svg" alt="Lupa com um + no centro" />
+          </button>
+
+          <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Alternar tema">
+            <span id="icon" class="sun">☀️</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <!-- Container VLibras -->
+        <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </article>
+    </section>
+
+    <section class="conteudo-grupos">
+
+
+      <section>
+        <!-- Hero da página: título, descrição e chamadas para ação -->
+        <section class="grupos-hero" aria-labelledby="hero-grupos-titulo">
+          <div class="hero-texto">
+            <!-- <span class="etiqueta" data-translate="grupos.hero.badge">Comunidade ativa 7/24</span> -->
+            <h1 id="hero-grupos-titulo" data-translate="grupos.hero.title">Encontre o grupo ideal para evoluir nos
+              estudos</h1>
+            <p data-translate="grupos.hero.text">Explore temas, participe de comunidades engajadas, compartilhe
+              materiais
+              e
+              estude com colegas que têm os mesmos objetivos que você.</p>
+            <div class="hero-acoes">
+              <a href="painel.html" class="btn-primario" data-translate="grupos.hero.cta.panel">Ir para o
+                painel</a>
+              <a href="#lista-grupos" class="btn-secundario" data-translate="grupos.hero.cta.discover">Descobrir
+                grupos</a>
+            </div>
+          </div>
+          <div class="hero-ilustracao">
+            <img src="../img/ElfaEstudando2.png" alt="Mascote StudyPlaza conectada a grupos" />
+            <div class="hero-destaque">
+              <strong>+180</strong>
+              <span data-translate="grupos.hero.stats.active">grupos ativos</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Lista / cards de grupos:
+         - Em produção, gerar estas linhas do backend (server-side) ou via JS dinâmico.
+         - Usar marcação semântica <ul>/<li> ou <table> se necessário para acessibilidade. -->
+        <section class="lista-grupos" id="lista-grupos" aria-labelledby="grupos-titulo">
+          <div class="cabecalho-secao">
+            <h2 id="grupos-titulo" data-translate="grupos.recommended.title">Grupos recomendados para você</h2>
+            <a href="painel.html" class="link-secundario" data-translate="grupos.recommended.link">Ver todos no
+              painel</a>
+          </div>
+          <div class="cards-grupos">
+            <article class="card-grupo" aria-labelledby="grupo-frontend-titulo">
+              <div class="titulo-grupo">
+                <h3 id="grupo-frontend-titulo" data-translate="grupos.recommended.frontend.title">Front-end colaborativo
+                </h3>
+                <span class="situacao online" aria-hidden="true"><i class="fa-solid fa-signal"></i>
+                  <span data-translate="grupos.status.online">Online</span></span>
+              </div>
+              <p data-translate="grupos.recommended.frontend.description">Estudos semanais focados em React,
+                acessibilidade
+                e boas práticas de UI. Compartilhe códigos e revise projetos em conjunto.</p>
+              <ul>
+                <li><i class="fa-solid fa-user-group" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.frontend.members">24
+                    membros</span></li>
+                <li><i class="fa-solid fa-calendar" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.frontend.schedule">Encontros
+                    às terças</span></li>
+                <li><i class="fa-solid fa-language" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.frontend.language">Português</span></li>
+              </ul>
+              <button type="button" class="btn-primario" data-translate="grupos.recommended.frontend.button"
+                aria-label="Participar do grupo Front-end">Participar</button>
+            </article>
+
+            <!-- Exemplo adicional: aplicar os mesmos padrões semânticos e de tradução -->
+            <article class="card-grupo" aria-labelledby="grupo-enem-titulo">
+              <div class="titulo-grupo">
+                <h3 id="grupo-enem-titulo" data-translate="grupos.recommended.enem.title">Preparatório ENEM Redação</h3>
+                <span class="situacao presencial" aria-hidden="true"><i class="fa-solid fa-people-line"></i>
+                  <span data-translate="grupos.status.inperson">Presencial</span></span>
+              </div>
+              <p data-translate="grupos.recommended.enem.description">Grupo com correção coletiva de redações, simulados
+                mensais e materiais comentados por professores convidados.</p>
+              <ul>
+                <li><i class="fa-solid fa-user-group" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.enem.members">18
+                    membros</span></li>
+                <li><i class="fa-solid fa-calendar" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.enem.schedule">Sábados de
+                    manhã</span></li>
+                <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.enem.location">Centro
+                    Educacional SP</span></li>
+              </ul>
+              <button type="button" class="btn-primario" data-translate="grupos.recommended.enem.button"
+                aria-label="Reservar vaga no ENEM">Reservar
+                vaga</button>
+            </article>
+
+            <!-- Terceiro card de exemplo -->
+            <article class="card-grupo" aria-labelledby="grupo-english-titulo">
+              <div class="titulo-grupo">
+                <h3 id="grupo-english-titulo" data-translate="grupos.recommended.english.title">Conversação em Inglês
+                </h3>
+                <span class="situacao hibrido" aria-hidden="true"><i class="fa-solid fa-globe"></i>
+                  <span data-translate="grupos.status.hybrid">Híbrido</span></span>
+              </div>
+              <p data-translate="grupos.recommended.english.description">Prática guiada de conversação com tutores
+                convidados e desafios temáticos quinzenais para destravar o inglês.</p>
+              <ul>
+                <li><i class="fa-solid fa-user-group" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.english.members">30
+                    membros</span></li>
+                <li><i class="fa-solid fa-calendar" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.english.schedule">Quartas
+                    à noite</span></li>
+                <li><i class="fa-solid fa-language" aria-hidden="true"></i> <span
+                    data-translate="grupos.recommended.english.language">Inglês / Português</span></li>
+              </ul>
+              <button type="button" class="btn-primario" data-translate="grupos.recommended.english.button"
+                aria-label="Participar do grupo de inglês">Quero
+                participar</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- CTA final -->
+        <section class="cta-grupos" aria-labelledby="cta-grupos-titulo">
+          <div class="cta-conteudo">
+            <h2 id="cta-grupos-titulo" data-translate="grupos.cta.title">Pronto para criar seu próprio grupo?</h2>
+            <p data-translate="grupos.cta.text">Organize sua turma, personalize regras, convide novos membros e
+              acompanhe
+              tudo no painel em tempo real.</p>
+            <a href="painel.html" class="btn-primario" data-translate="grupos.cta.button">Começar agora</a>
+          </div>
+        </section>
+      </section>
+
+  </main>
+
+  <div class="gtranslate_wrapper"></div>
+  <footer>
+    <section class="footer-container">
+      <article class="footer-section">
+        <div class="nomeLogo">
+          <img class="logoFooter" src="../img/Logo.svg" alt="Logo do site" />
+          <h3 class="textLogoFooter">Study Plaza</h3>
+        </div>
+        <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.</p>
+        <div class="social-icons">
+          <p> Quer conhecer um pouco mais de nós?
+            Conheça nosso
+
+            <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+        </p>
+      </article>
+    </section>
+    <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+  </footer>
+
+  <script> window.chtlConfig = { chatbotId: "1666361565" } </script>
+  <script async data-id="1666361565" id="chtl-script" type="text/javascript"
+    src="https://chatling.ai/js/embed.js"></script>
+  <script src="js/geral.js"></script>
+  <script src="../js/alterarTemas.js"></script>
+  <script src="../js/acessibilidade.js"></script>
+  <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+  <script src="js/grupos.js"></script>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    // Inicializa widget VLibras (tradução para Libras). Mantê-lo por último para garantir que o plugin já está carregado.
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+</body>
+
+</html>

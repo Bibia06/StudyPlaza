@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StudyPlaza - Meu Perfil</title>
+    <link rel="icon" href="../img/Logo_Fundo_Roxa.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="../css/btnAcessibilidade.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html" aria-label="Voltar para página inicial">
+                <img src="../img/Logo.svg" alt="Logo Study Plaza" />
+                <h1>Study Plaza</h1>
+            </a>
+        </div>
+
+        <button class="hamburger" aria-expanded="false" aria-controls="menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+
+        <nav class="menu" id="menu-principal" aria-label="Menu principal">
+
+            <!-- BOTÃO FECHAR (mobile) -->
+            <button class="fecharMenu" aria-label="Fechar menu">&times;</button>
+
+            <!-- LINKS PRINCIPAIS -->
+            <div class="menu-links">
+                <a href="grupos.html" class="linkMenu">
+                    <i class="fa-solid fa-people-group"></i>
+                    <span>Grupos</span>
+                </a>
+
+                <a href="painel.html" class="linkMenu">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Painel</span>
+                </a>
+
+                <a href="cursos.html" class="linkMenu">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Cursos</span>
+                </a>
+
+                <a href="http://localhost:9000" class="linkMenu destaque">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Chat</span>
+                </a>
+            </div>
+
+            <!-- AÇÕES / USUÁRIO -->
+            <div class="menu-acoes">
+
+                <a href="sobrenos.html" class="linkMenu">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Sobre</span>
+                </a>
+
+                <!-- PERFIL -->
+                <div class="dropdown-perfil">
+                    <button class="perfil-btn" aria-expanded="false">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span>Perfil</span>
+                        <i class="fa-solid fa-chevron-down seta"></i>
+                    </button>
+
+                    <div class="dropdown-conteudo">
+                        <a href="perfil.html">
+                            <i class="fa-solid fa-user"></i> Meu Perfil
+                        </a>
+
+                        <a href="cursosinscritos.html">
+                            <i class="fa-solid fa-book"></i> Meus Cursos
+                        </a>
+
+                        <hr>
+
+                        <a href="#" id="logout-btn" class="logout">
+                            <i class="fa-solid fa-right-from-bracket"></i> Sair
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <article>
+                <!-- Container VLibras -->
+                <div vw class="enabled">
+                    <div vw-access-button class="active"></div>
+                    <div vw-plugin-wrapper>
+                        <div class="vw-plugin-top-wrapper"></div>
+                    </div>
+                </div>
+                <div class="overlay"></div>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+                    <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+                        <img src="../img/icon.svg" alt="símbolo da onu" />
+                    </button>
+                </div>
+
+                <div id="barra" class="divbarradeacessibilidade">
+                    <button onclick="desativarbarra()" class="botaoativacaobarra">
+                        <img src="../img/icon.svg" alt="símbolo da onu" />
+                    </button>
+
+                    <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade">
+                        <img src="../img/lupa-.svg" alt="Lupa com um - no centro" />
+                    </button>
+
+                    <button onclick="zoommais()" class="funcaoesbarradeacessibilidade">
+                        <img src="../img/lupa+.svg" alt="Lupa com um + no centro" />
+                    </button>
+
+                    <!-- 🔘 Botão do switch -->
+                    <button id="theme-toggle" class="theme-toggle">
+                        <span id="icon" class="sun">☀️</span>
+                    </button>
+                </div>
+            </article>
+        </section>
+
+
+        <section class="perfil-container">
+
+            <div class="perfil-header-card">
+                <div class="perfil-avatar">
+                    <img width="150" height="150" style="border-radius: 50%;" src="../img/icon-7797704_1280.png">
+                </div>
+                <div class="perfil-info-basica">
+                    <h1>Luiz Gustavo</h1>
+                    <p class="perfil-username">@luiz.study</p>
+                </div>
+            </div>
+
+            <nav class="perfil-nav">
+                <a href="#configuracoes" class="perfil-nav-item active">
+                    <i class="fa-solid fa-sliders"></i>
+                    Configurações
+                </a>
+
+                <button type="button" id="btnEditar" class="perfil-nav-item btn-editar">
+                    <i class="fa-solid fa-pen"></i>
+                    Editar
+                </button>
+            </nav>
+
+            <section id="configuracoes" class="perfil-section active-section">
+
+                <div class="config-header">
+                    <h2>Configurações da Conta</h2>
+                </div>
+
+                <!-- Modo visualização -->
+                <div id="configView" class="config-view">
+
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <div id="nome" class="field-value" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <div id="email" class="field-value" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo de Usuário</label>
+                        <div id="tipo_usuario" class="field-value" aria-live="polite"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- Modo edição -->
+                <form id="configForm" class="config-form" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="inputNome">Nome Completo</label>
+
+                        <input type="text" id="inputNome" name="nome" required autocomplete="name">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputEmail">E-mail</label>
+
+                        <input type="email" id="inputEmail" name="email" required autocomplete="email">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputTipoUsuario">Tipo de Usuário</label>
+
+                        <select id="inputTipoUsuario" name="tipo_usuario" required>
+                            <option value="estudante">Estudante</option>
+                            <option value="professor">Professor</option>
+                        </select>
+                    </div>
+
+
+                    <div class="config-acoes">
+
+                        <button type="submit" id="btnSalvar" class="btn-primario">
+                            <i class="fa-solid fa-check"></i>
+                            Salvar
+                        </button>
+
+                        <button type="button" id="btnCancelar" class="btn-cancelar">
+                            <i class="fa-solid fa-xmark"></i>
+                            Cancelar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- <section id="estatisticas" class="perfil-section active-section">
+                    <h2 >Desempenho e Progresso</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fa-solid fa-trophy"></i>
+                            <h3 >Quizzes Concluídos</h3>
+                            <p>45</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fa-solid fa-percent"></i>
+                            <h3 >Média Geral</h3>
+                            <p>85%</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fa-solid fa-users"></i>
+                            <h3 >Grupos Ativos</h3>
+                            <p>4</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fa-solid fa-clock"></i>
+                            <h3 >Horas de Estudo (Mês)</h3>
+                            <p>22.5h</p>
+                        </div>
+                    </div>
+
+                </section> -->
+
+
+            <!-- <section id="historico" class="perfil-section">
+                    <h2 >Atividade Recente</h2>
+                    <ul class="historico-list">
+                        <li ><i class="fa-solid fa-comment"></i> Enviou
+                            mensagem no grupo **Cálculo 101** - 10/05/2025
+                        </li>
+                        <li ><i class="fa-solid fa-trophy"></i> Concluiu o Quiz
+                            de **JavaScript Intermediário** -
+                            08/05/2025</li>
+                        <li ><i class="fa-solid fa-book"></i> Iniciou o curso
+                            **Design Responsivo** - 07/05/2025</li>
+                        <li ><i class="fa-solid fa-chart-line"></i> Atingiu 90%
+                            de média no mês de Abril - 01/05/2025
+                        </li>
+                    </ul>
+                </section> -->
+
+            </div>
+        </section>
+    </main>
+
+    <div class="gtranslate_wrapper"></div>
+    <footer>
+        <section class="footer-container">
+            <article class="footer-section">
+                <div class="nomeLogo">
+                    <img class="logoFooter" src="../img/Logo.svg" alt="Logo do site" />
+                    <h3 class="textLogoFooter">Study Plaza</h3>
+                </div>
+                <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.
+                </p>
+                <div class="social-icons">
+                    <p> Quer conhecer um pouco mais de nós?
+                        Conheça nosso
+
+                        <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                </div>
+                </p>
+            </article>
+        </section>
+        <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+    </footer>
+
+    <script> window.chtlConfig = { chatbotId: "1666361565" } </script>
+    <script async data-id="1666361565" id="chtl-script" type="text/javascript"
+        src="https://chatling.ai/js/embed.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="../js/alterarTemas.js"></script>
+    <script src="js/geral.js"></script>
+    <script src="../js/acessibilidade.js"></script>
+    <script src="js/perfil.js"></script>
+</body>
+
+</html>

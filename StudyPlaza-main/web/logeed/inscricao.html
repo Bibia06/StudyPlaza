@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="description"
+    content="Página de inscrição para os cursos da Study Plaza. Preencha seus dados para garantir sua vaga." />
+  <meta name="keywords" content="inscrição, matrícula, cursos, graduação, faculdade, Study Plaza" />
+  <meta name="author" content="Study Plaza" />
+  <title>Inscrição em Curso - StudyPlaza</title>
+  <link rel="icon" href="../img/Logo_Fundo_Roxa.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha384-..." crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/inscricao.css">
+  <link rel="stylesheet" href="../css/btnAcessibilidade.css">
+  <!--
+      Observações sobre head:
+      - meta tags definem comportamento responsivo e SEO básico.
+      - ordem dos estilos: style.css com regras globais, inscricao.css para sobrescritas específicas.
+      - manter integrity/crossorigin quando usar CDN para segurança.
+    -->
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html" aria-label="Voltar para página inicial">
+        <img src="../img/Logo.svg" alt="Logo Study Plaza" />
+        <h1>Study Plaza</h1>
+      </a>
+    </div>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <nav class="menu" id="menu-principal" aria-label="Menu principal">
+
+      <!-- BOTÃO FECHAR (mobile) -->
+      <button class="fecharMenu" aria-label="Fechar menu">&times;</button>
+
+      <!-- LINKS PRINCIPAIS -->
+      <div class="menu-links">
+        <a href="grupos.html" class="linkMenu">
+          <i class="fa-solid fa-people-group"></i>
+          <span>Grupos</span>
+        </a>
+
+        <a href="painel.html" class="linkMenu">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Painel</span>
+        </a>
+
+        <a href="cursos.html" class="linkMenu">
+          <i class="fa-solid fa-book"></i>
+          <span>Cursos</span>
+        </a>
+        <a href="http://localhost:9000" class="linkMenu destaque">
+          <i class="fa-solid fa-comments"></i>
+          <span>Chat</span>
+        </a>
+
+      </div>
+
+      <!-- AÇÕES / USUÁRIO -->
+      <div class="menu-acoes">
+
+        <a href="sobrenos.html" class="linkMenu">
+          <i class="fa-solid fa-users"></i>
+          <span>Sobre</span>
+        </a>
+
+        <!-- PERFIL -->
+        <div class="dropdown-perfil">
+          <button class="perfil-btn" aria-expanded="false">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>Perfil</span>
+            <i class="fa-solid fa-chevron-down seta"></i>
+          </button>
+
+          <div class="dropdown-conteudo">
+            <a href="perfil.html">
+              <i class="fa-solid fa-user"></i> Meu Perfil
+            </a>
+
+            <a href="cursosinscritos.html">
+              <i class="fa-solid fa-book"></i> Meus Cursos
+            </a>
+
+            <hr>
+
+            <a href="#" id="logout-btn" class="logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </nav>
+  </header>
+
+
+  <main>
+    <section>
+      <article>
+        <!--
+                  Widget VLibras (acessibilidade em Libras):
+                  - inserido no topo para fácil acesso.
+                  - inicializado no final do arquivo via new window.VLibras.Widget(...)
+                -->
+        <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+          </div>
+        </div>
+
+        <!-- Overlay global usado por modais (por exemplo: login).
+                     Visibilidade controlada por JS através de classes (ex.: .active). -->
+        <div class="overlay"></div>
+      </article>
+    </section>
+
+
+    <section>
+      <article>
+        <!--
+                  Barra de acessibilidade (compacta):
+                  - botaobarra: botão inicial que ativa a barra completa.
+                  - ativarbarra()/desativarbarra() implementadas em acessibilidade.js.
+                -->
+        <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+          <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+        </div>
+
+        <!--
+                  Barra completa de acessibilidade:
+                  - Controles: diminuir/aumentar fonte e alternância de tema.
+                  - Funções zoommais(), zoommenos() e alterarTemas.js vinculam-se a esses botões.
+                  - aria-labels/alt melhoram a experiência para tecnologias assistivas.
+                -->
+        <div id="barra" class="divbarradeacessibilidade">
+          <button onclick="desativarbarra()" class="botaoativacaobarra" aria-label="Fechar barra de acessibilidade">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+
+          <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade" aria-label="Diminuir fonte">
+            <img src="../img/lupa-.svg" alt="Lupa com um - no centro" />
+          </button>
+
+          <button onclick="zoommais()" class="funcaoesbarradeacessibilidade" aria-label="Aumentar fonte">
+            <img src="../img/lupa+.svg" alt="Lupa com um + no centro" />
+          </button>
+
+          <!-- Botão que alterna tema claro/escuro; alterarTemas.js gerencia estado e localStorage -->
+          <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Alternar tema">
+            <span id="icon" class="sun">☀️</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!--
+          Seção principal de inscrição:
+          - Formulário simples postando para processar_inscricao.php (backend).
+          - Campos usam atributos HTML5 (required, type) para validação básica no cliente.
+          - Para validação JS mais rica, pode-se adicionar manipuladores no arquivo JS (ex.: cadastro.js).
+        -->
+    <section class="inscricao-section" aria-labelledby="inscricao-titulo">
+      <div class="form-container">
+        <h1 id="inscricao-titulo">Inscrição para o Curso</h1>
+        <p class="intro-texto">Preencha o formulário abaixo para garantir sua vaga e iniciar seu processo de
+          matrícula.</p>
+
+        <!--
+                  Formulário:
+                  - action aponta para um script PHP que deve validar/sanitizar os dados no servidor antes de inserir no BD.
+                  - usar CSRF token no backend em produção.
+                  - nome/id dos campos devem corresponder ao esperado pelo backend (processar_inscricao.php).
+                -->
+        <form id="form-inscricao" method="POST" novalidate>
+
+          <fieldset>
+            <legend>Seleção do Curso</legend>
+
+            <div class="form-group">
+              <label for="curso" id="obrigatorio">Curso Escolhido</label>
+              <!--
+                              Select com opção padrão desabilitada para forçar escolha.
+                              Valores enviados devem corresponder aos IDs/identificadores usados no backend.
+                            -->
+              <select id="curso" name="curso" required>
+                <option value="" disabled selected>Selecione um curso</option>
+                <option value="agronegocio">Agronegócio</option>
+                <option value="ads">Análise e Desenvolvimento de Software</option>
+                <option value="ads-ams">Análise e Desenvolvimento de Software - AMS</option>
+                <option value="ge-ead">Gestão Empresarial - EAD</option>
+                <option value="gpi">Gestão da Produção Industrial</option>
+                <option value="si">Sistemas para Internet</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <!-- Botão de envio:
+                         - estilizado via CSS (classe btn-submit).
+                         - o atributo novalidate no form permite customizar validação em JS caso deseje. -->
+          <button type="submit" class="btn-submit">Finalizar Inscrição</button>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div class="gtranslate_wrapper"></div>
+  <footer>
+    <section class="footer-container">
+      <article class="footer-section">
+        <div class="nomeLogo">
+          <img class="logoFooter" src="../img/Logo.svg" alt="Logo do site" />
+          <h3 class="textLogoFooter">Study Plaza</h3>
+        </div>
+        <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.
+        </p>
+        <div class="social-icons">
+          <p> Quer conhecer um pouco mais de nós?
+            Conheça nosso
+
+            <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+        </p>
+      </article>
+    </section>
+    <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+  </footer>
+
+  <script> window.chtlConfig = { chatbotId: "1666361565" } </script>
+  <script async data-id="1666361565" id="chtl-script" type="text/javascript"
+    src="https://chatling.ai/js/embed.js"></script>
+  <script src="js/geral.js"></script>
+  <script src="../js/alterarTemas.js"></script>
+  <script src="../js/acessibilidade.js"></script>
+  <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    // Inicializa o widget VLibras para conversão em Libras; mantido aqui para garantir que a lib já tenha sido carregada.
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <script src="js/inscrever.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+### Variables 
+@apiurl = http://localhost:3500/api
+@tableName = comentarios
+
+### GET comentarios
+GET {{apiurl}}/{{tableName}} HTTP/1.1
+
+###
+GET {{apiurl}}/{{tableName}}/1
+
+###
+POST {{apiurl}}/{{tableName}}
+Content-Type: application/json; charset=utf-8
+
+{
+    "id_material": 1,
+    "id_usuario": 1 ,
+    "comentario": "teste" ,
+    "data_comentario": ""
+  }
+
+###
+DELETE {{apiurl}}/{{tableName}}/2
+
+###
+PUT {{apiurl}}/{{tableName}}/1
+Content-Type: application/json; charset=utf-8
+
+{
+    "id_material": 1,
+    "id_usuario": 1 ,
+    "comentario": "teste 2" ,
+    "data_comentario": ""
+  }

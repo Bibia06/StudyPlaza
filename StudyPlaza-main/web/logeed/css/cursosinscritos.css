@@ -1,0 +1,190 @@
+@import url('style.css');
+
+body {
+  background: var(--cor-Fundo);
+  color: var(--cor-Fonte);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.grupos-hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  /* Ajuste para telas pequenas */
+}
+
+.hero-texto .etiqueta {
+  display: inline-block;
+  background: rgba(106, 76, 147, 0.12);
+  color: var(--cor-Fonte);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.painel {
+  background: var(--branco);
+  border-radius: 2rem;
+  padding: 3rem;
+  width: 80%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+  gap: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.painel h1 {
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  margin-bottom: 1rem;
+  color: var(--cor-Fonte2, --cor-Fonte);
+}
+
+.painel p {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 520px;
+  color: var(--cor-Fonte2, --cor-Fonte);
+}
+
+.status {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 10px;
+}
+
+.status div {
+  background: rgba(106, 76, 147, 0.08);
+  border-radius: 1.5rem;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border: 1px solid rgba(106, 76, 147, 0.15);
+}
+
+.status strong {
+  font-size: 1rem;
+  color: var(--cor-Fonte2, --cor-Fonte);
+}
+
+.status span {
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.status p {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.acoesCurso {
+  margin-top: 15px;
+}
+
+.btnCancelar {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  background: #dc3545;
+  color: white;
+
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btnCancelar:hover {
+  background: #bb2d3b;
+}
+
+/* ========================= */
+/* RESPONSIVIDADE */
+/* ========================= */
+
+/* Tablets (<= 1024px) */
+@media screen and (max-width: 1024px) {
+  .painel {
+    width: 90%;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .status div {
+    padding: 1rem;
+  }
+
+  .status strong {
+    font-size: 1.6rem;
+  }
+
+  .painel h1 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Smartphones (<= 768px) */
+@media screen and (max-width: 768px) {
+  .grupos-hero {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .painel {
+    width: 95%;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .status div {
+    padding: 1rem;
+  }
+
+  .status strong {
+    font-size: 1.4rem;
+  }
+
+  .painel h1 {
+    font-size: 2rem;
+  }
+
+  .painel p {
+    max-width: 100%;
+  }
+}
+
+/* Smartphones pequenos (<= 480px) */
+@media screen and (max-width: 480px) {
+  .status {
+    grid-template-columns: 1fr;
+    /* Cards empilhados */
+  }
+
+  .status div {
+    padding: 0.8rem 1rem;
+  }
+
+  .status strong {
+    font-size: 1.2rem;
+  }
+
+  .painel h1 {
+    font-size: 1.8rem;
+  }
+
+  .painel p {
+    font-size: 0.95rem;
+  }
+}

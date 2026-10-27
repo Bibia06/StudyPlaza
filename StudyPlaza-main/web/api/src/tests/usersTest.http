@@ -1,0 +1,36 @@
+
+### Variables 
+@apiurl = http://localhost:3500/api
+@tableName = usuarios
+
+### GET users
+GET {{apiurl}}/{{tableName}} HTTP/1.1
+
+###
+GET {{apiurl}}/{{tableName}}/1
+
+###
+POST {{apiurl}}/{{tableName}}
+Content-Type: application/json; charset=utf-8
+
+ {
+    "nome": "teste inclusão via api",
+    "email":"teste@teste",
+    "senha": "123456",
+    "tipo_usuario": "Admin"
+  }
+
+###
+
+DELETE {{apiurl}}/{{tableName}}/2
+
+###
+PUT {{apiurl}}/{{tableName}}/1
+Content-Type: application/json; charset=utf-8
+
+{
+    "nome": "Admin",
+    "email":"admin@gmail.com",
+    "senha": "147258",
+    "tipo_usuario": "admin"
+  }

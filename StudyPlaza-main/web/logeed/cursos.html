@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="description"
+    content="Cursos complementares gratuitos para estudantes e profissionais - desenvolva habilidades e destaque-se com a Study Plaza." />
+  <meta name="keywords"
+    content="cursos online, gratuitos, programação, finanças pessoais, produtividade, redação, estudantes, educação" />
+  <meta name="author" content="Study Plaza" />
+  <title>Cursos Complementares - StudyPlaza</title>
+  <link rel="icon" href="../img/Logo_Fundo_Roxa.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha384-..." crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cursos.css">
+  <link rel="stylesheet" href="../css/btnAcessibilidade.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html" aria-label="Voltar para página inicial">
+        <img src="../img/Logo.svg" alt="Logo Study Plaza" />
+        <h1>Study Plaza</h1>
+      </a>
+    </div>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <nav class="menu" id="menu-principal" aria-label="Menu principal">
+
+      <!-- BOTÃO FECHAR (mobile) -->
+      <button class="fecharMenu" aria-label="Fechar menu">&times;</button>
+
+      <!-- LINKS PRINCIPAIS -->
+      <div class="menu-links">
+        <a href="grupos.html" class="linkMenu">
+          <i class="fa-solid fa-people-group"></i>
+          <span>Grupos</span>
+        </a>
+
+        <a href="painel.html" class="linkMenu">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Painel</span>
+        </a>
+
+        <a href="cursos.html" class="linkMenu">
+          <i class="fa-solid fa-book"></i>
+          <span>Cursos</span>
+        </a>
+        <a href="http://localhost:9000" class="linkMenu destaque">
+          <i class="fa-solid fa-comments"></i>
+          <span>Chat</span>
+        </a>
+
+      </div>
+
+      <!-- AÇÕES / USUÁRIO -->
+      <div class="menu-acoes">
+
+        <a href="sobrenos.html" class="linkMenu">
+          <i class="fa-solid fa-users"></i>
+          <span>Sobre</span>
+        </a>
+
+        <!-- PERFIL -->
+        <div class="dropdown-perfil">
+          <button class="perfil-btn" aria-expanded="false">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>Perfil</span>
+            <i class="fa-solid fa-chevron-down seta"></i>
+          </button>
+
+          <div class="dropdown-conteudo">
+            <a href="perfil.html">
+              <i class="fa-solid fa-user"></i> Meu Perfil
+            </a>
+
+            <a href="cursosinscritos.html">
+              <i class="fa-solid fa-book"></i> Meus Cursos
+            </a>
+
+            <hr>
+
+            <a href="#" id="logout-btn" class="logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </nav>
+  </header>
+
+
+  <main>
+    <section>
+      <article>
+        <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+          <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+        </div>
+
+        <div id="barra" class="divbarradeacessibilidade">
+          <button onclick="desativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+
+          <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade">
+            <img src="../img/lupa-.svg" alt="Lupa com um - no centro" />
+          </button>
+
+          <button onclick="zoommais()" class="funcaoesbarradeacessibilidade">
+            <img src="../img/lupa+.svg" alt="Lupa com um + no centro" />
+          </button>
+
+          <!-- 🔘 Botão do switch -->
+          <button id="theme-toggle" class="theme-toggle">
+            <span id="icon" class="sun">☀️</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section class="conteudo-cursos">
+      <section>
+        <article>
+          <!-- Container VLibras -->
+          <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+              <div class="vw-plugin-top-wrapper"></div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </article>
+      </section>
+
+      <section class="intro-section" aria-labelledby="titulo-intro">
+        <h1 id="titulo-intro" data-translate="cursos.intro.title">Explore os Melhores Cursos Complementares</h1>
+        <p data-translate="cursos.intro.text">Na Study Plaza, reunimos os cursos online mais relevantes para turbinar
+          sua
+          formação acadêmica e profissional.
+          Conheça novas áreas, desenvolva habilidades práticas e fique à frente no mercado. 🚀</p>
+      </section>
+
+      <section aria-labelledby="courses-title">
+        <h2 id="courses-title" data-translate="cursos.title.section">Cursos Disponíveis</h2>
+        <div class="courses-container" aria-label="Lista de cursos para inscrição">
+
+          <article class="course-card" tabindex="0">
+
+            <h3 data-translate="cursos.agronegocio.title">Agronegócio</h3>
+            <p data-translate="cursos.agronegocio.desc">Forma profissionais aptos a gerenciar a cadeia produtiva do
+              agronegócio, desde a produção até a
+              comercialização e logística.</p>
+            <a class="linkInscricao" href="inscricao.html" data-translate="cursos.inscrever-se.btn">Inscrever-se</a>
+                   
+          </article>
+
+          <article class="course-card" tabindex="0">
+             <h3 data-translate="cursos.ads.title">Análise e Desenvolvimento de Software</h3>
+              <p data-translate="cursos.ads.desc">Prepare-se para criar, analisar, projetar, implementar e gerenciar
+              sistemas de informação e soluções de
+              software.</p>
+              <a class="linkInscricao" href="inscricao.html" data-translate="cursos.inscrever-se.btn">Inscrever-se</a>
+          </article>
+
+          <article class="course-card" tabindex="0">
+             <h3 data-translate="cursos.ads-ams.title">Análise e Desenvolvimento de Software - AMS</h3>
+              <p data-translate="cursos.ads-ams.desc">Foco em Análise, Modelagem e Simulação de Sistemas, integrando o
+              desenvolvimento de software com técnicas
+              avançadas de TI.</p>
+            <a class="linkInscricao" href="inscricao.html" data-translate="cursos.inscrever-se.btn">Inscrever-se</a>
+          </article>
+
+          <article class="course-card" tabindex="0">
+            <h3 data-translate="cursos.ge-ead.title">Gestão Empresarial - EAD</h3>
+              <p data-translate="cursos.ge-ead.desc">Curso a distância para formar líderes com visão estratégica e
+              gerencial, prontos para atuar em diversos
+              setores de uma empresa.</p>
+            <a class="linkInscricao" href="inscricao.html" data-translate="cursos.inscrever-se.btn">Inscrever-se</a>
+          </article>
+
+          <article class="course-card" tabindex="0">
+            <h3 data-translate="cursos.gpi.title">Gestão da Produção Industrial</h3>
+            <p data-translate="cursos.gpi.desc">Otimize processos, gerencie recursos e melhore a produtividade em
+              ambientes industriais, dominando a cadeia
+              de suprimentos.</p>
+            <a class="linkInscricao" href="inscricao.html" data-translate="cursos.inscrever-se.btn">Inscrever-se</a>
+          </article>
+
+          <article class="course-card" tabindex="0">
+            <h3 data-translate="cursos.si.title">Sistemas para Internet</h3>
+            <p data-translate="cursos.si.desc">Foque no desenvolvimento de aplicações web, websites e sistemas
+              interativos, da concepção à implantação no
+              ambiente online.</p>
+            <a class="linkInscricao" href="inscricao.html" data-translate="cursos.inscrever-se.btn">Inscrever-se</a>
+          </article>
+           
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+  <div class="gtranslate_wrapper"></div>
+
+  <footer>
+    <section class="footer-container">
+      <article class="footer-section">
+        <div class="nomeLogo">
+          <img class="logoFooter" src="../img/Logo.svg" alt="Logo do site" />
+          <h3 class="textLogoFooter">Study Plaza</h3>
+        </div>
+        <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.
+        </p>
+        <div class="social-icons">
+          <p> Quer conhecer um pouco mais de nós?
+            Conheça nosso
+
+            <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+        </p>
+      </article>
+    </section>
+    <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+  </footer>
+
+  <script> window.chtlConfig = { chatbotId: "1666361565" } </script>
+  <script async data-id="1666361565" id="chtl-script" type="text/javascript"
+    src="https://chatling.ai/js/embed.js"></script>
+  <script src="js/geral.js"></script>
+  <script src="../js/alterarTemas.js"></script>
+  <script src="../js/acessibilidade.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <script>
+
+    const API_URL = "http://localhost:3500/api"; // sua API
+    const cursosContainer = document.querySelector(".courses-container");
+
+    /**
+     * Cria dinamicamente os cards de cursos com base nos dados da API
+     * @param {string} endpoint - endpoint da API (ex: "cursos")
+     */
+    async function carregarCursos(endpoint) {
+      try {
+        console.log(`📡 Buscando cursos em: ${API_URL}/${endpoint}`);
+
+        const response = await fetch(`${API_URL}/${endpoint}`);
+
+        if (!response.ok) {
+          throw new Error(`Erro ao buscar cursos: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          cursosContainer.innerHTML = "<p>Nenhum curso encontrado.</p>";
+          return;
+        }
+
+        // Limpa os cards padrões
+        cursosContainer.innerHTML = "";
+
+        data.forEach(curso => {
+          const card = document.createElement("div");
+          card.classList.add("course-card");
+          card.tabIndex = 0;
+
+          card.innerHTML = `
+            <h3>${curso.titulo || "Curso Sem Título"}</h3>
+            <p>${curso.descricao || "Sem descrição disponível."}</p>
+            <p><strong>Modalidade: </strong> ${curso.modalidade || "Curso sem modalidade"} </p>
+            <p><strong>Duração: </strong> ${curso.duracao_semestres || "Duração não informada"} Semestres</p>
+
+            <a class="linkInscricao" href="inscricao.html" data-translate="cursos.inscrever-se.btn">Inscrever-se</a>
+          `;
+
+          cursosContainer.appendChild(card);
+        });
+
+
+      } catch (erro) {
+        console.error("❌ Erro ao criar cards:", erro);
+        cursosContainer.innerHTML =
+          `<p style="color:red;">Erro ao carregar cursos. Verifique a API.</p>`;
+      }
+    }
+
+    // Chamar automaticamente quando carregar
+    carregarCursos("cursos"); // <-- coloque o nome do endpoint real
+
+  </script>
+
+</body>
+
+</html>

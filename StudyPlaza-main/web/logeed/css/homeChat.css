@@ -1,0 +1,599 @@
+/* =========================================================
+   HOMECHAT - TELA DE ENTRADA DO STUDY CHAT
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+
+@import url('style.css');
+
+
+/* =========================================================
+   PALETA DO STUDY PLAZA
+   ========================================================= */
+
+:root {
+    --font-family: 'Poppins', Arial, sans-serif;
+
+    --roxo-claro: #A88BEB;
+    --roxo-menu: #6A4C93;
+
+    --cor-Fonte: #333;
+    --cor-Fonte2: #555;
+
+    --ativo: #BFDFFF;
+    --efeitoBefore: #231942;
+    --hoverEscuro: #231942;
+
+    --cor-Fundo: #F9F9F9;
+    --cor-Card: #FFFFFF;
+    --cor-Input: #FFFFFF;
+
+    --branco: #FFFFFF;
+
+    --sombra: rgba(0, 0, 0, .08);
+
+    --gradient: linear-gradient(
+        100deg,
+        var(--roxo-menu),
+        var(--roxo-claro)
+    );
+}
+
+
+/* =========================================================
+   MODO ESCURO
+   ========================================================= */
+
+.dark-theme {
+    --roxo-claro: #cdb4db;
+    --roxo-menu: #10002B;
+
+    --ativo: #9D4EDD;
+    --efeitoBefore: #C77DFF;
+    --hoverEscuro: #8338EC;
+
+    --cor-Fundo: #1A0B2E;
+
+    --cor-Card: #2A1247;
+    --cor-Input: #33195A;
+
+    --cor-Fonte: #F5F5F5;
+    --cor-Fonte2: #D6D6D6;
+
+    --branco: var(--cor-Card);
+
+    --sombra: rgba(0, 0, 0, .35);
+
+    --gradient: linear-gradient(
+        90deg,
+        #240046,
+        #3C096C
+    );
+}
+
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: var(--font-family);
+
+    color: var(--cor-Fonte);
+
+    background: var(--cor-Fundo);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.login-container {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            color-mix(
+                in srgb,
+                var(--roxo-claro) 25%,
+                transparent
+            ),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            color-mix(
+                in srgb,
+                var(--roxo-menu) 20%,
+                transparent
+            ),
+            transparent 40%
+        ),
+        var(--cor-Fundo);
+
+    transition: background 0.3s ease;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.login-card {
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 40px;
+
+    background: var(--cor-Card);
+
+    border-radius: 24px;
+
+    border: 1px solid
+        color-mix(
+            in srgb,
+            var(--roxo-claro) 15%,
+            transparent
+        );
+
+    box-shadow:
+        0 20px 60px var(--sombra);
+
+    backdrop-filter: blur(12px);
+
+    text-align: center;
+
+    animation: cardAppear 0.5s ease;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo-area {
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    width: 70px;
+
+    height: 70px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 20px;
+
+    background: var(--gradient);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 10px 25px var(--sombra);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.logo-icon:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px var(--sombra);
+}
+
+.logo-area h1 {
+    margin: 0 0 10px;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: var(--cor-Fonte);
+
+    transition: color 0.3s ease;
+}
+
+.logo-area p {
+    margin: 0;
+
+    color: var(--cor-Fonte2);
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.6;
+
+    transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+#chat-login-form {
+    text-align: left;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--cor-Fonte);
+}
+
+.input-group label i {
+    margin-right: 6px;
+
+    color: var(--roxo-menu);
+
+    transition: color 0.3s ease;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border: 1px solid
+        color-mix(
+            in srgb,
+            var(--cor-Fonte2) 20%,
+            transparent
+        );
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: var(--cor-Input);
+
+    color: var(--cor-Fonte);
+
+    font-family: var(--font-family);
+
+    font-size: 15px;
+
+    font-weight: 300;
+
+    transition:
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.input-group input::placeholder {
+    color: var(--cor-Fonte2);
+
+    opacity: 0.65;
+}
+
+.input-group input:focus {
+    border-color: var(--roxo-claro);
+
+    background: var(--cor-Input);
+
+    box-shadow:
+        0 0 0 3px
+        color-mix(
+            in srgb,
+            var(--roxo-claro) 20%,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DO GRUPO
+   ========================================================= */
+
+.group-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--roxo-claro) 12%,
+            var(--cor-Card)
+        );
+
+    border: 1px solid
+        color-mix(
+            in srgb,
+            var(--roxo-claro) 15%,
+            transparent
+        );
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.group-info > i {
+    width: 38px;
+
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--roxo-menu) 12%,
+            transparent
+        );
+
+    color: var(--roxo-menu);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.group-info div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.group-info span {
+    font-size: 12px;
+
+    font-weight: 300;
+
+    color: var(--cor-Fonte2);
+}
+
+.group-info strong {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: var(--cor-Fonte);
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.enter-button {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--gradient);
+
+    color: var(--cor-Fonte);
+
+    font-family: var(--font-family);
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    box-shadow:
+        0 8px 20px var(--sombra);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+.enter-button:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.05);
+
+    box-shadow:
+        0 12px 25px var(--sombra);
+}
+
+.enter-button:active {
+    transform: scale(0.98);
+}
+
+.enter-button i {
+    transition:
+        transform 0.3s ease;
+}
+
+.enter-button:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+   ========================================================= */
+
+.back-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 22px;
+
+    color: var(--cor-Fonte2);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 300;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.back-button:hover {
+    color: var(--roxo-claro);
+
+    transform: translateX(-2px);
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+   ========================================================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-card {
+        padding: 30px 22px;
+
+        border-radius: 20px;
+    }
+
+    .logo-icon {
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 25px;
+    }
+
+    .logo-area h1 {
+        font-size: 25px;
+    }
+
+    .logo-area p {
+        font-size: 13px;
+    }
+
+    .input-group input {
+        padding: 14px;
+    }
+
+    .enter-button {
+        padding: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+.enter-button:focus-visible,
+.back-button:focus-visible,
+.input-group input:focus-visible {
+    outline: 3px solid var(--efeitoBefore);
+
+    outline-offset: 3px;
+}

@@ -1,0 +1,42 @@
+@host = http://localhost
+@port = 3500
+@endpoint = cursos
+
+@url = {{host}}:{{port}}/{{endpoint}} 
+
+###
+GET {{url}}
+
+###
+# getById
+GET {{url}}/1
+
+###
+# inclui novos registros
+POST  {{url}}
+Content-Type: application/json; charset=utf-8
+
+{
+  "title": "Análise e Desenvolvimento de Software",
+  "description": "Prepare-se para criar, analisar, projetar, implementar e gerenciar sistemas de informação e soluções de software.",
+  "platform" : "https://fatectq.cps.sp.gov.br",
+  "category": "Presencial",
+  "duration": "6 semestres"
+}
+
+###
+
+PUT  {{url}}/1
+Content-Type: application/json; charset=utf-8
+
+{
+  "title": "Agronegócio",
+  "description": "Forma profissionais aptos a gerenciar a cadeia produtiva do agronegócio, desde a produção até a comercialização e logística.",
+  "platform" : "https://fatectq.cps.sp.gov.br",
+  "category": "Presencial",
+  "duration": "6 semestres"
+}
+###
+DELETE  {{url}}/3
+Content-Type: application/json; charset=utf-8
+

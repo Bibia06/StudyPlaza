@@ -1,0 +1,91 @@
+/*Barra de acessibilidade*/
+.ativaredasativarvlibras {
+  display: none;
+  position: fixed;
+  top: 40vh;
+}
+
+.divativacaobarradeacessibilidade,
+.divbarradeacessibilidade {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+.divativacaobarradeacessibilidade button,
+.divbarradeacessibilidade button {
+  background-color: var(--branco);
+  color: var(--branco);
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.divativacaobarradeacessibilidade .botaoativacaobarra {
+  filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.5));
+}
+
+.divativacaobarradeacessibilidade button:hover {
+  background-color: var(--branco);
+}
+
+.botaoativacaobarra img {
+  width: 2.5rem;
+
+}
+
+.funcaoesbarradeacessibilidade img {
+  width: 1.6rem;
+}
+
+.divbarradeacessibilidade {
+  background-color: var(--branco);
+  border-radius: 28px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 23px 0;
+  gap: 8px;
+  filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.5));
+  top: 300px;
+
+}
+
+#logodafatecdabarradeacessibilidade {
+  width: 2.5rem;
+}
+
+.divbarradeacessibilidade {
+  max-width: 90vw;
+}
+
+@media (max-width: 768px) {
+
+  .divativacaobarradeacessibilidade,
+  .divbarradeacessibilidade {
+    top: auto;
+    bottom: 60px;
+    left: 10px;
+  }
+
+  .ativaredasativarvlibras {
+    top: auto;
+    bottom: 80px;
+  }
+
+  .botaoativacaobarra img {
+    width: 2rem;
+  }
+
+  .funcaoesbarradeacessibilidade img {
+    width: 1.3rem;
+  }
+}

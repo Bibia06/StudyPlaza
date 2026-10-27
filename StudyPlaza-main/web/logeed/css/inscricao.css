@@ -1,0 +1,199 @@
+/* Importa as variáveis de tema do style.css */
+@import url('style.css');
+
+.inscricao-section {
+    text-align: center;
+        flex-grow: 1;
+    max-width: 1000px;
+    margin: 50px auto 80px auto;
+    padding: 0 20px;
+}
+
+.form-container {
+    background-color: var(--branco);
+    /* Fundo claro para o formulário */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--sombra);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-container h1 {
+    font-size: 2.2rem;
+    color: var(--efeitoBefore);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form-container h2#curso-selecionado {
+    font-size: 1.5rem;
+    color: var(--roxo-menu);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.intro-texto {
+    font-size: 1.1rem;
+    color: var(--cor-Fonte2, --cor-Fonte);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+fieldset {
+    border: 1px solid var(--roxo-claro);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+legend {
+    font-weight: 700;
+    color: var(--cor-Fonte);
+    padding: 0 10px;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--cor-Fonte2, --cor-Fonte);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--roxo-claro);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(168, 139, 235, 0.3);
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.radio-group label {
+    font-weight: 400;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.termos {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.termos input[type="checkbox"] {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.termos label a {
+    color: var(--roxo-menu);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.termos label a:hover {
+    text-decoration: underline;
+}
+
+.btn-submit {
+    width: 100%;
+    background: var(--roxo-menu);
+    border: 2px solid var(--roxo-claro);
+    color: var(--branco);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--efeitoBefore);
+    transform: translateY(-2px);
+}
+
+.toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 9999;
+}
+
+.toast {
+    opacity: 0;
+    transform: translateY(-20px);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.success {
+    background-color: #4caf50;
+}
+
+.toast.error {
+    background-color: #f44336;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 30px 20px;
+    }
+
+    .form-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-container h2#curso-selecionado {
+        font-size: 1.3rem;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

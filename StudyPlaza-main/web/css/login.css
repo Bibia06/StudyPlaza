@@ -1,0 +1,200 @@
+/* =========================
+   IMPORTS
+========================= */
+@import url('style.css');
+
+/* =========================
+   OVERLAY (FUNDO ESCURO)
+========================= */
+.overlay {
+    visibility: hidden;
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* =========================
+   MODAL LOGIN
+========================= */
+.formLogin {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    /* leve animação inicial */
+
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem;
+
+    background: var(--cor-Fundo);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    z-index: 999;
+
+    transition: 0.3s ease;
+}
+
+.formLogin.active {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    /* centraliza suavemente */
+}
+
+/* =========================
+   BOTÃO FECHAR
+========================= */
+.close-login {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 1.5rem;
+    color: var(--cor-Fonte);
+
+    cursor: pointer;
+}
+
+/* =========================
+   CONTEÚDO LOGIN
+========================= */
+.login-container h2 {
+    margin-bottom: 25px;
+
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--cor-Fonte);
+}
+
+.login-container p {
+    color: var(--cor-Fonte);
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cor-Fonte);
+}
+
+/* =========================
+   INPUTS
+========================= */
+input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+
+    background: #f9f9f9;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--efeitoBefore);
+    background: #fff;
+}
+
+/* =========================
+   BOTÃO
+========================= */
+.btnEntrar {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    background: var(--efeitoBefore);
+    color: var(--cor-Fundo);
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btnEntrar:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   LINKS
+========================= */
+.login-container .linkCadastro {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--efeitoBefore);
+}
+
+.login-container .linkCadastro:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   VALIDAÇÃO
+========================= */
+input.valid,
+textarea.valid {
+    border-color: green;
+}
+
+input.invalid,
+textarea.invalid {
+    border-color: #e63946;
+    background-color: #ffe5e5;
+}
+
+.error-message {
+    display: none;
+
+    font-size: 0.85rem;
+    text-align: start;
+
+    color: var(--error-mensage);
+    user-select: text;
+}
+
+.char-count {
+    margin-top: 4px;
+
+    font-size: 0.8rem;
+    text-align: right;
+
+    color: var(--preto);
+    user-select: text;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 480px) {
+    .formLogin {
+        padding: 1.5rem 1rem;
+    }
+
+    .login-container h2 {
+        font-size: 1.5rem;
+    }
+}

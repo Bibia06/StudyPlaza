@@ -1,0 +1,45 @@
+@host = http://localhost
+@port = 3500
+@endpoint = grupos
+
+@url = {{host}}:{{port}}/{{endpoint}} 
+
+###
+GET {{url}}
+
+###
+# GetByTotalDeGrupos
+GET {{url}}/totalGrupos
+
+###
+# getById
+GET {{url}}/1
+
+###
+# GetByGruposDoUser
+GET {{url}}/theFromUser/3
+
+###
+# inclui novos registros
+POST  {{url}}
+Content-Type: application/json; charset=utf-8
+
+{
+    "iduser": 1,
+    "name": "Sistemas para Internet",
+    "description": "grupo si"      
+}
+
+###
+
+PUT  {{url}}/1
+Content-Type: application/json; charset=utf-8
+
+{
+    "name": "Teste",
+    "description": "my test"      
+}
+
+###
+DELETE  {{url}}/4
+Content-Type: application/json; charset=utf-8

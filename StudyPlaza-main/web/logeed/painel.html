@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Painel de grupos da StudyPlaza com visão geral, indicadores e acompanhamento de atividades." />
+  <meta name="author" content="StudyPlaza" />
+  <title>Painel de Grupos - StudyPlaza</title>
+  <link rel="icon" href="../img/Logo_Fundo_Roxa.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/painel.css" />
+  <link rel="stylesheet" href="../css/btnAcessibilidade.css">
+  <!-- Cabeçalho: inclui metadados e estilos. Manter a ordem dos CSS para que painel.css
+       sobrescreva regras gerais definidas em style.css quando necessário. -->
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html" aria-label="Voltar para página inicial">
+        <img src="../img/Logo.svg" alt="Logo Study Plaza" />
+        <h1>Study Plaza</h1>
+      </a>
+    </div>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <nav class="menu" id="menu-principal" aria-label="Menu principal">
+
+      <!-- BOTÃO FECHAR (mobile) -->
+      <button class="fecharMenu" aria-label="Fechar menu">&times;</button>
+
+      <!-- LINKS PRINCIPAIS -->
+      <div class="menu-links">
+        <a href="grupos.html" class="linkMenu">
+          <i class="fa-solid fa-people-group"></i>
+          <span>Grupos</span>
+        </a>
+
+        <a href="painel.html" class="linkMenu">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Painel</span>
+        </a>
+
+        <a href="cursos.html" class="linkMenu">
+          <i class="fa-solid fa-book"></i>
+          <span>Cursos</span>
+        </a>
+        <a href="http://localhost:9000" class="linkMenu destaque">
+          <i class="fa-solid fa-comments"></i>
+          <span>Chat</span>
+        </a>
+
+      </div>
+
+      <!-- AÇÕES / USUÁRIO -->
+      <div class="menu-acoes">
+
+        <a href="sobrenos.html" class="linkMenu">
+          <i class="fa-solid fa-users"></i>
+          <span>Sobre</span>
+        </a>
+
+        <!-- PERFIL -->
+        <div class="dropdown-perfil">
+          <button class="perfil-btn" aria-expanded="false">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>Perfil</span>
+            <i class="fa-solid fa-chevron-down seta"></i>
+          </button>
+
+          <div class="dropdown-conteudo">
+            <a href="perfil.html">
+              <i class="fa-solid fa-user"></i> Meu Perfil
+            </a>
+
+            <a href="cursosinscritos.html">
+              <i class="fa-solid fa-book"></i> Meus Cursos
+            </a>
+
+            <hr>
+
+            <a href="#" id="logout-btn" class="logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <article>
+        <!-- Widget de acessibilidade externo (VLibras). Mantido no topo do conteúdo para fácil alcance. -->
+        <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+          </div>
+        </div>
+
+        <!-- Overlay usado por modais (ex.: login). Display controlado por JS adicionando/removendo classes. -->
+        <div class="overlay"></div>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <!-- Barra de acessibilidade: botão inicial (botaobarra) mostra a barra completa -->
+        <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+          <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+        </div>
+
+        <!-- Barra completa: controles de zoom e alternância de tema.
+             Funções zoommais/zoommenos e alterarTemas.js vinculam-se a esses botões. -->
+        <div id="barra" class="divbarradeacessibilidade">
+          <button onclick="desativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+
+          <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade" aria-label="Diminuir fonte">
+            <img src="../img/lupa-.svg" alt="Lupa com um - no centro" />
+          </button>
+
+          <button onclick="zoommais()" class="funcaoesbarradeacessibilidade" aria-label="Aumentar fonte">
+            <img src="../img/lupa+.svg" alt="Lupa com um + no centro" />
+          </button>
+
+          <!-- Botão de alternância de tema. O script alterarTemas.js atualiza o ícone e salva a preferência. -->
+          <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Alternar tema">
+            <span id="icon" class="sun">☀️</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <!-- Container VLibras -->
+        <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </article>
+    </section>
+
+    <!-- Conteúdo principal do painel: título, métricas e lista de grupos.
+         Elementos usam data-translate para serem atualizados dinamicamente pelo TranslationSystem. 
+         
+          Outra opção para text painel:  Acompanhe desempenho, atividades e engajamento dos grupos em um só
+          lugar. Personalize as ações do seu time e mantenha tudo organizado.
+         -->
+    <section class="painel-hero" aria-labelledby="painel-hero-titulo">
+      <div>
+        <h1 id="painel-hero-titulo" data-translate="painel.hero.title">Painel dos seus grupos</h1>
+        <p data-translate="painel.hero.text"> Acompanhe seus grupos ativos e configure da forma que quiser.</p>
+        <div class="hero-status">
+          <div>
+            <strong>12</strong>
+            <span data-translate="painel.hero.status.groups">Grupos ativos</span>
+          </div>
+          <!-- <div>
+            <strong>84%</strong>
+            <span data-translate="painel.hero.status.goal">Meta semanal concluída</span>
+          </div>
+          <div>
+            <strong>216</strong>
+            <span data-translate="painel.hero.status.messages">Mensagens novas</span>
+          </div> -->
+        </div>
+      </div>
+      <div class="hero-action">
+        <a type="button" class="btn-primario" data-translate="painel.hero.actions.create" href="criargrupo.html"> Criar
+          novo grupo</a>
+        <!-- <button type="button" class="btn-secundario" data-translate="painel.hero.actions.import">Importar lista de
+          membros</button> -->
+      </div>
+    </section>
+
+    <!-- GRUPOS ATIVOS -->
+    <div class="painel-grupos" aria-labelledby="grupos-ativos-titulo">
+      <div class="cabecalho-secao">
+        <h2 id="grupos-ativos-titulo">
+          Seus grupos ativos
+        </h2>
+      </div>
+
+      <div class="tabela-grupos-ativos"></div>
+    </div>
+
+    <!-- TODOS OS GRUPOS -->
+    <div class="painel-grupos" aria-labelledby="todos-grupos-titulo">
+      <div class="cabecalho-secao">
+        <h2 id="todos-grupos-titulo">
+          Todos os grupos que participo
+        </h2>
+      </div>
+
+      <div class="tabela-todos-grupos"></div>
+    </div>
+
+    <div id="modal-editar-grupo" class="modal-container" style="display: none;">
+      <div class="modal-conteudo">
+        <h3>Editar Grupo</h3>
+
+        <div class="modal-campo">
+          <label for="input-editar-nome-grupo">Nome do Grupo:</label>
+          <input type="text" id="input-editar-nome-grupo" placeholder="Digite o novo nome...">
+        </div>
+
+        <div class="modal-campo">
+          <label for="select-editar-status-grupo">Status do Grupo:</label>
+          <select id="select-editar-status-grupo">
+            <option value="1">Ativo</option>
+            <option value="0">Inativo</option>
+          </select>
+        </div>
+
+        <div class="modal-acoes">
+          <button id="btn-salvar-edicao" class="btn-salvar">Salvar</button>
+          <button id="btn-cancelar-edicao" class="btn-cancelar">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="gtranslate_wrapper"></div>
+  <footer>
+    <section class="footer-container">
+      <article class="footer-section">
+        <div class="nomeLogo">
+          <img class="logoFooter" src="../img/Logo.svg" alt="Logo do site" />
+          <h3 class="textLogoFooter">Study Plaza</h3>
+        </div>
+        <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.</p>
+        <div class="social-icons">
+          <p> Quer conhecer um pouco mais de nós?
+            Conheça nosso
+
+            <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+        </p>
+      </article>
+    </section>
+    <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+  </footer>
+
+  <script> window.chtlConfig = { chatbotId: "1666361565" } </script>
+  <script async data-id="1666361565" id="chtl-script" type="text/javascript"
+    src="https://chatling.ai/js/embed.js"></script>
+  <script src="js/geral.js"></script>
+  <script src="../js/alterarTemas.js"></script>
+  <script src="../js/acessibilidade.js"></script>
+  <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+  <script src="js/painel.js"></script>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    // Inicializa o widget VLibras para tradução de libras.
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</body>
+
+</html>

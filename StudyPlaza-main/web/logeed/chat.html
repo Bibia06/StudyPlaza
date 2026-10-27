@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Plataforma de aprendizado colaborativo com IA, quizzes e grupos de estudo." />
+  <meta name="keywords" content="estudo, educação, grupos de estudo, quizzes, IA, aprendizagem colaborativa" />
+  <meta name="author" content="Study Plaza" />
+  <title>Study Plaza - Plataforma de Aprendizado Colaborativo</title>
+  <link rel="icon" href="../img/Logo_Fundo_Roxa.png" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/btnAcessibilidade.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+
+<body>
+
+  <main>
+    <section>
+      <article>
+        <!-- Container VLibras -->
+        <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </article>
+    </section>
+    <section>
+      <article>
+        <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+          <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+        </div>
+
+        <div id="barra" class="divbarradeacessibilidade">
+          <button onclick="desativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+
+          <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade">
+            <img src="../img/lupa-.svg" alt="Lupa com um - no centro" />
+          </button>
+
+          <button onclick="zoommais()" class="funcaoesbarradeacessibilidade">
+            <img src="../img/lupa+.svg" alt="Lupa com um + no centro" />
+          </button>
+
+          <!-- 🔘 Botão do switch -->
+          <button id="theme-toggle" class="theme-toggle">
+            <span id="icon" class="sun">☀️</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+
+
+
+    <!-- Chat Container -->
+    <section class="chat-layout">
+
+      <!-- Sidebar -->
+      <aside class="chat-sidebar">
+
+        <div class="sidebar-header">
+          <h2>
+            <i class="fa-solid fa-comments"></i>
+            Study Chat
+          </h2>
+        </div>
+
+        <div class="sidebar-info">
+          <p>Grupo Atual</p>
+          <h3>Grupo de Estudos</h3>
+        </div>
+
+        <div class="online-users">
+
+          <h4>
+            <i class="fa-solid fa-user-group"></i>
+            Online
+          </h4>
+
+          <ul id="user-list">
+            <li>
+              <i class="fa-solid fa-circle"></i>
+              Você
+            </li>
+          </ul>
+
+        </div>
+
+      </aside>
+
+      <!-- Chat -->
+      <section class="chat-main">
+
+        <div class="chat-header">
+          <div>
+            <h2># chat-geral</h2>
+            <p>Converse com os participantes do grupo.</p>
+          </div>
+
+          <div class="chat-status">
+            <i class="fa-solid fa-wifi"></i>
+            Conectado
+          </div>
+          <a href="#" onclick="history.back(); return false;" class="chat-button">
+            Sair
+          </a>
+        </div>
+
+        <ul class="chat-messages" id="chat-messages">
+          <!-- mensagens -->
+        </ul>
+
+        <form class="chat-input-area" id="chat-form">
+
+          <div class="input-wrapper">
+
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem..." autocomplete="off" required>
+
+            <button type="submit">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+          </div>
+
+        </form>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <div class="gtranslate_wrapper"></div>
+  <footer>
+    <section class="footer-container">
+      <article class="footer-section">
+        <div class="nomeLogo">
+          <img class="logoFooter" src="../img/Logo.svg" alt="Logo do site" />
+          <h3 class="textLogoFooter">Study Plaza</h3>
+        </div>
+        <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.
+        </p>
+        <div class="social-icons">
+          <p> Quer conhecer um pouco mais de nós?
+            Conheça nosso
+
+            <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+        </p>
+      </article>
+    </section>
+    <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+  </footer>
+
+  <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <script src="/js/acessibilidade.js"></script>
+  <script src="/js/alterarTemas.js"></script>
+
+  <!-- Socket.IO client (for tempo real) -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!--
+      Script inline: lógica do chat via Socket.IO
+      - Conecta ao servidor socket (io()).
+      - Envia mensagens do formulário para o servidor (evento 'chat message').
+      - Recebe mensagens do servidor e as adiciona à lista de mensagens.
+      - Marca mensagens locais com classe 'my-message' para estilização diferenciada.
+      - Mantém o scroll sempre no final ao receber mensagens.
+    -->
+  <script>
+    // Cria conexão com o servidor Socket.IO (endereço relativo - assume mesmo host)
+    // Resgata o nome do usuário que você salvou no login. 
+    // Se não achar nada (usuário burlou o login), define como "Visitante".
+    const usuariodados = JSON.parse(localStorage.getItem('studyplaza-user'))
+
+    const myUsername = usuariodados.nome || 'Visitante_' + Math.floor(Math.random() * 1000);
+    const myUserId = usuariodados.id || null;
+
+    const idGrupoAtual = 1;
+
+    console.log(myUsername)
+
+    const socket = io();
+
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    let myId = null;
+
+    socket.on('connect', () => {
+      myId = socket.id;
+      console.log('Conectado com ID:', myId);
+
+      // Assim que conectar, envia o nome do usuário para o servidor registrar
+      socket.emit('join', {
+        username: myUsername,
+        id_usuario: myUserId,
+        id_grupo: idGrupoAtual
+      });
+    });
+
+    socket.on('chat history', function (mensagensAntigas) {
+      chatMessages.innerHTML = ''; // Limpa a tela antes de carregar o histórico
+
+      mensagensAntigas.forEach(function (data) {
+        const messageElement = document.createElement('li');
+
+        // AGORA SIM: Se o banco retornar o nome, ele usa o nome. 
+        // Se por algum motivo falhar, ele ainda tem o fallback de segurança.
+        const autor = data.nome || `Usuário ${data.id_usuario}`;
+
+        messageElement.innerHTML = `<strong>${autor}:</strong> ${data.mensagem}`;
+
+        // Define se a mensagem antiga era nossa ou de outro (baseado no ID)
+        if (String(data.id_usuario) === String(myUserId)) {
+          messageElement.classList.add('my-message');
+        } else {
+          messageElement.classList.add('other-message');
+        }
+
+        chatMessages.appendChild(messageElement);
+      });
+
+      // Joga o scroll para o final das mensagens
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const text = input.value && input.value.trim();
+
+      if (text) {
+        socket.emit('chat message', text);
+        input.value = '';
+        input.focus();
+      }
+    });
+
+    socket.on('chat message', function (data) {
+      const messageElement = document.createElement('li');
+
+      // Adiciona o nome do usuário antes da mensagem (em negrito)
+      messageElement.innerHTML = `<strong>${data.username}:</strong> ${data.msg}`;
+
+      if (data.id === myId) {
+        messageElement.classList.add('my-message');
+      } else {
+        messageElement.classList.add('other-message');
+      }
+
+      chatMessages.appendChild(messageElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+
+
+    // Observação:
+    // - Em produção é recomendável escapar / sanitizar o conteúdo das mensagens
+    //   para evitar XSS se o servidor repassar HTML.
+    // - Também é comum exibir autor e timestamp; adaptar data enviada pelo servidor conforme necessário.
+  </script>
+
+</body>
+
+</html>

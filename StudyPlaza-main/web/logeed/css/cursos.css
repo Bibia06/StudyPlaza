@@ -1,0 +1,192 @@
+/* Importa as variáveis de tema do style.css */
+@import url('style.css');
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.intro-section {
+  text-align: center;
+  margin: 40px 20px;
+}
+
+.intro-section h1 {
+  font-size: 2.5rem;
+  color: var(--cor-Fonte);
+  margin-bottom: 10px;
+}
+
+.intro-section p {
+  font-size: 1.2rem;
+  color: var(--cor-Fonte);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.conteudo-cursos{
+  flex-grow: 1;
+  max-width: 1100px;
+  margin: 50px auto 80px auto;
+  padding: 0 20px;
+}
+
+#courses-title {
+  color: var(--cor-Fonte);
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.course-card {
+  background-color: var(--roxo-menu);
+  border-radius: 12px;
+  box-shadow: 0 4px 25px var(--sombra);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.course-card:hover,
+.course-card:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px var(--efeitoBefore);
+  outline: none;
+}
+
+.course-card h3 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+}
+
+.course-card p {
+  color: white;
+  flex-grow: 1;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+/* Ajuste para o novo botão de inscrição */
+.course-card .linkInscricao {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--efeitoBefore);
+  /* Cor do botão (Roxo Escuro) */
+  color: var(--cor-Fundo);
+  /* Cor do texto (Branco/Claro) */
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Opcional: Se precisar remover o modal (pois não temos mais o "Ver mais") */
+/* Se não for usar o modal nesta página, você pode remover todo o bloco do Modal */
+/* Deixei o modal-overlay com display: none no CSS, então não deve atrapalhar */
+
+.course-card a:hover,
+.course-card a:focus {
+  background: var(--hoverEscuro);
+  transform: scale(1.1);
+  outline: none;
+}
+
+.call-to-action {
+  margin: 50px 20px;
+  text-align: center;
+  background: var(--cor-Fundo);
+  padding: 30px 20px;
+  border-radius: 12px;
+}
+
+.call-to-action h2 {
+  color: var(--cor-Fonte);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.call-to-action p {
+  color: var(--cor-Fonte);
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.call-to-action a {
+  background: var(--roxo-menu);
+  color: var(--cor-Fundo);
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.call-to-action a:hover {
+  box-shadow: 0 0 12px var(--sombra);
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .intro-section h1 {
+    font-size: 2rem;
+  }
+
+  .intro-section p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .call-to-action h2 {
+    font-size: 1.6rem;
+  }
+
+  .call-to-action p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  .login-btn,
+  .cadastro-btn {
+    width: 100%;
+  }
+
+  .intro-section {
+    margin: 30px 15px;
+  }
+
+  .call-to-action {
+    padding: 20px 15px;
+  }
+}

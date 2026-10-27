@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- viewport para responsivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Meta descrição/keywords/author para SEO e compartilhamento -->
+    <meta name="description"
+        content="Conheça o Study Plaza, uma plataforma de aprendizado colaborativo com quizzes personalizados, grupos de estudo e muito mais." />
+    <meta name="keywords" content="Estudo, Colaborativo, Plataforma, Quiz, Cursos, Comunidade, Educação" />
+    <meta name="author" content="Study Plaza Team" />
+    <title>Study Plaza - Plataforma de Aprendizado Colaborativo</title>
+
+    <!-- Favicon do site -->
+    <link rel="icon" href="img/Logo_Fundo_Roxa.png" type="image/png" />
+
+    <!-- Font Awesome CDN para ícones (pode adicionar integrity + crossorigin em produção) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Estilos: globais e específicos da página 'sobre nós' -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sobrenos.css">
+    <link rel="stylesheet" href="css/btnAcessibilidade.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logo e título com link para a home -->
+        <div class="logo">
+            <a href="index.html"><img src="img/Logo.svg" alt="Logo">
+                <h1>Study Plaza</h1>
+            </a>
+        </div>
+
+        <!-- Botão hamburger: controla menu responsivo. aria-expanded deve ser atualizado por JS -->
+        <button class="hamburger" aria-expanded="false" aria-controls="menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+
+        <!-- Navegação principal:
+             - data-translate usado pelo sistema de tradução
+             - id="ativo" aplicado na página atual (estilização) -->
+        <nav class="menu" id="menu-principal" aria-label="Menu principal">
+            <button class="fecharMenu" aria-label="Fechar menu">&times;</button>
+            <a href="cursos.html" class="linkMenu"><i class="fa-solid fa-book"></i> <span>Cursos</span></a>
+            <a href="quiz.html" class="linkMenu"><i class="fa-solid fa-trophy"></i> <span>Quiz</span></a>
+            <a href="sobrenos.html" class="linkMenu" id="ativo"><i class="fa-solid fa-users"></i> <span>Sobre
+                    Nós</span></a>
+            <a href="#" class="abrir-login linkMenu"><i class="fa-solid fa-lock"></i> <span>Login</span></a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <script> window.chtlConfig = { chatbotId: "1666361565" } </script>
+        <script async data-id="1666361565" id="chtl-script" type="text/javascript"
+            src="https://chatling.ai/js/embed.js"></script>
+
+        <section>
+            <article>
+                <!-- Container VLibras: widget para tradução em Libras (instanciado por script no fim do documento) -->
+                <div vw class="enabled">
+                    <div vw-access-button class="active"></div>
+                    <div vw-plugin-wrapper>
+                        <div class="vw-plugin-top-wrapper"></div>
+                    </div>
+                </div>
+
+                <!-- Overlay genérico usado por modais/efeitos -->
+                <div class="overlay"></div>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <!-- Barra de acessibilidade:
+                     - botaobarra abre a barra
+                     - zoommais/zoommenos ajustam escala do texto (implementação em js/acessibilidade.js)
+                     - theme-toggle alterna tema (implementação em js/alterarTemas.js) -->
+                <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+                    <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+                        <img src="img/icon.svg" alt="símbolo da onu" />
+                    </button>
+                </div>
+
+                <div id="barra" class="divbarradeacessibilidade">
+                    <button onclick="desativarbarra()" class="botaoativacaobarra">
+                        <img src="img/icon.svg" alt="símbolo da onu" />
+                    </button>
+
+                    <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade">
+                        <img src="img/lupa-.svg" alt="Lupa com um - no centro" />
+                    </button>
+
+                    <button onclick="zoommais()" class="funcaoesbarradeacessibilidade">
+                        <img src="img/lupa+.svg" alt="Lupa com um + no centro" />
+                    </button>
+
+                    <!-- Botão de alternância de tema; o ícone é atualizado por JS -->
+                    <button id="theme-toggle" class="theme-toggle">
+                        <span id="icon" class="sun">☀️</span>
+                    </button>
+                </div>
+            </article>
+        </section>
+
+        <!-- Seção 'Sobre nós': texto explicativo e imagem -->
+        <section class="sobre-nos">
+            <div class="intro-sobre">
+                <div class="texto-sobre">
+                    <h2>Sobre o Study Plaza</h2>
+                    <p>
+                        <!-- Texto descritivo sobre missão, funcionalidades e IA que gera quizzes -->
+                        No Study Plaza, acreditamos que o aprendizado se torna mais eficiente e motivador quando é
+                        compartilhado. Sabemos que muitos estudantes enfrentam desafios ao estudar sozinhos, como falta
+                        de organização, acesso a bons materiais ou dificuldade em se conectar com outras pessoas.
+
+                        Por isso, criamos uma plataforma que promove o aprendizado colaborativo, onde os usuários podem
+                        participar de grupos de estudo, compartilhar materiais, trocar mensagens e crescer juntos em um
+                        ambiente respeitoso e inclusivo.
+
+                        Além disso, contamos com o apoio de uma inteligência artificial que analisa as postagens dos
+                        grupos e gera quizzes personalizados, ajudando os usuários a testarem seus conhecimentos de
+                        forma prática e interativa.
+
+                        Nosso objetivo é construir uma comunidade ativa e engajada no compartilhamento de conhecimento,
+                        tornando o estudo mais acessível, dinâmico e eficiente para todos.
+                    </p>
+                </div>
+                <div class="imagem-sobre">
+                    <!-- Imagem ilustrativa; alt descreve o conteúdo para leitores de tela -->
+                    <img src="img/Logo_Fundo_Roxa.png" alt="Logo da Study Plaza">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de integrantes: cards com botão que abre modal com mais informações -->
+        <section class="integrantes">
+            <h2>Conheça nossa equipe</h2>
+            <div class="cards-integrantes">
+
+                <!-- Card integrante: usar tabindex se quiser foco por teclado (não adicionado aqui) -->
+                <div class="card-integrante">
+                    <img src="img/CartoonLuiz.png" alt="Integrante 1">
+                    <h3>Luiz Gustavo</h3>
+                    <!-- abrirModal é implementado em js/sobrenos.js -->
+                    <button onclick="abrirModal('modalLuiz')">Ver sobre o
+                        integrante</button>
+                </div>
+
+                <div class="card-integrante">
+                    <img src="img/CartoonBianca.png" alt="Integrante 2">
+                    <h3>Bianca</h3>
+                    <button onclick="abrirModal('modalBianca')">Ver sobre o
+                        integrante</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <!-- Modais dos integrantes:
+                 - cada modal tem id que corresponde ao argumento passado para abrirModal/fecharModal
+                 - fecharModal deve esconder o modal e remover foco (implementado em js/sobrenos.js) -->
+            <div id="modalLuiz" class="modal-integrante">
+                <div class="modal-conteudo">
+                    <img src="img/CartoonLuiz.png" class="mini-img" alt="Luiz Gustavo">
+                    <div>
+                        <h3>Luiz Gustavo</h3>
+                        <p>Sou Luiz Gustavo, estudante de TI que gosta muito de
+                            desenvolvimento e inovação. Tenho foco em criar soluções acessíveis, organizadas e
+                            elegantes, com atenção especial à experiência do usuário. Busco constantemente me superar,
+                            aprendendo novas tecnologias e aplicando-as para entregar projetos funcionais e impactantes.
+                            Responsável pelo front-end e acessibilidade do projeto. Sempre em busca de surpreender
+                            através da tecnologia.</p>
+                    </div>
+                    <button class="fechar-modal" onclick="fecharModal('modalLuiz')">✕</button>
+                </div>
+            </div>
+
+            <div id="modalBianca" class="modal-integrante">
+                <div class="modal-conteudo">
+                    <img src="img/CartoonBianca.png" class="mini-img" alt="Bianca">
+                    <div>
+                        <h3>Bianca</h3>
+                        <p>Sou a Bianca, estudante de TI, gosto de deixar tudo
+                            mais intuitivo e bonito, pensando no público geral. Responsável pelo front-end e
+                            acessibilidade do projeto em colaboração com a equipe. Estou sempre aprendendo, testando,
+                            quebrando a cabeça, para entregar um trabalho que realmente faça a diferença.</p>
+                    </div>
+                    <button class="fechar-modal" onclick="fecharModal('modalBianca')">✕</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de login (inicialmente oculto via CSS/JS).
+         - novalidate: validação customizada por JS em js/login.js
+         - aria-describedby aponta para área de erro geral -->
+        <section class="formLogin" aria-label="Formulário de Login">
+            <article class="login-container">
+                <button class="close-login" aria-label="Fechar login">&times;</button>
+                <h2 id="login-title">Bem-vindo ao Study Plaza</h2>
+
+                <form id="login-form" novalidate autocomplete="off" aria-describedby="form-error">
+                    <label for="input-email" id="obrigatorio">Email:</label>
+                    <input type="email" id="input-email" name="email" required placeholder="seu@email.com"
+                        aria-required="true" />
+                    <div id="email-error" class="error-message" data-dynamic="true">
+                        <p>O campo E-mail é obrigatório.</p>
+                    </div>
+
+                    <label for="input-password" id="obrigatorio">Senha:</label>
+                    <input type="password" id="input-password" name="password" required minlength="6"
+                        placeholder="••••••••" aria-required="true" />
+                    <div id="password-error" class="error-message" data-dynamic="true">
+                        <p>O campo Senha é obrigatória.</p>
+                    </div>
+
+                    <button type="submit" class="btnEntrar">Entrar</button>
+                    <div id="form-error" class="error-message"></div>
+                    <div id="password-error" class="error-message"></div>
+                </form>
+
+                <!-- Link para página de cadastro -->
+                <p><span>Não tem uma conta?</span> <a class="linkCadastro" href="cadastro.html">Cadastre-se aqui</a></p>
+            </article>
+        </section>
+
+    </main>
+
+    <footer>
+        <section class="footer-container">
+            <article class="footer-section">
+                <div class="nomeLogo">
+                    <img class="logoFooter" src="./img/Logo.svg" alt="Logo do site" />
+                    <h3 class="textLogoFooter">Study Plaza</h3>
+                </div>
+                <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.
+                </p>
+                <div class="social-icons">
+                    <p> Quer conhecer um pouco mais de nós?
+                        Conheça nosso
+
+                        <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                </div>
+                </p>
+            </article>
+        </section>
+        <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- VLibras: plugin oficial de Libras; instancia o widget que adiciona o tradutor em Libras -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- Scripts:
+         - geral.js: controles de UI (menu, abrir/fechar modais genéricos)
+         - alterarTemas.js: alterna tema e salva preferência
+         - sobrenos.js: funções específicas desta página (abrirModal/fecharModal)
+         - login.js, acessibilidade.js: validação/login e ações de acessibilidade
+         - translations.js / translate.js: carregam e aplicam traduções multilíngues -->
+    <script src="js/geral.js"></script>
+    <script src="js/alterarTemas.js"></script>
+    <script src="js/sobrenos.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/acessibilidade.js"></script>
+  <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Descrição e palavras-chave ajudam SEO e compartilhamento. -->
+  <meta name="description" content="Plataforma de aprendizado colaborativo com IA, quizzes e grupos de estudo." />
+  <meta name="keywords" content="estudo, educação, grupos de estudo, quizzes, IA, aprendizagem colaborativa" />
+  <meta name="author" content="Study Plaza" />
+  <title>Study Plaza - Plataforma de Aprendizado Colaborativo</title>
+
+  <!-- Ícone do site -->
+  <link rel="icon" href="img/Logo_Fundo_Roxa.png" type="image/svg+xml" />
+
+  <!-- Font Awesome para ícones (CDN). O integrity foi substituído por "..." — idealmente adicionar o hash correto. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Estilos locais -->
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/btnAcessibilidade.css">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <header>
+    <!-- Logo e título: link para a página inicial. aria-label melhora acessibilidade para leitores de tela -->
+    <div class="logo">
+      <a href="index.html" aria-label="Voltar para página inicial">
+        <img src="img/Logo.svg" alt="Logo Study Plaza" />
+        <h1>Study Plaza</h1>
+      </a>
+    </div>
+
+    <!-- Botão hamburger para menu responsivo.
+         - aria-expanded deve ser atualizado por JS quando o menu abrir/fechar
+         - aria-controls aponta para o menu que esse botão controla -->
+    <button class="hamburger" aria-expanded="false" aria-controls="menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <!-- Navegação principal.
+         - data-translate: usado pelo sistema de tradução/idioma para substituir textos dinamicamente -->
+    <nav class="menu" id="menu-principal" aria-label="Menu principal">
+      <button class="fecharMenu" aria-label="Fechar menu">&times;</button>
+
+      <!-- Cada link possui ícone e <span> com data-translate para multilíngue -->
+      <a href="cursos.html" class="linkMenu"><i class="fa-solid fa-book"></i> <span>Cursos</span></a>
+      <a href="quiz.html" class="linkMenu"><i class="fa-solid fa-trophy"></i> <span>Quiz</span></a>
+      <a href="sobrenos.html" class="linkMenu"><i class="fa-solid fa-users"></i> <span>Sobre Nós</span></a>
+      <a href="#" class="abrir-login linkMenu"><i class="fa-solid fa-lock"></i> <span>Login</span></a>
+    </nav>
+
+  </header>
+
+  <main>
+
+
+    
+
+    <section>
+      <article>
+        <!-- Container VLibras:
+             - plugin de Libras (Língua Brasileira de Sinais) para tornar o conteúdo acessível
+             - a inclusão do script e a instanciação no fim do documento ativam o widget -->
+        <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+          </div>
+        </div>
+
+        <!-- Overlay possivelmente usado para efeitos visuais quando o widget/menu estiver ativo -->
+        <div class="overlay"></div>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <!-- Barra de acessibilidade: botões para ativar/desativar, zoom e alternar tema.
+             Os handlers onclick referenciam funções definidas em js/acessibilidade.js e alterarTemas.js -->
+        <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+          <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+            <img src="img/icon.svg" alt="símbolo da onu" />
+          </button>
+        </div>
+
+        <div id="barra" class="divbarradeacessibilidade">
+          <button onclick="desativarbarra()" class="botaoativacaobarra">
+            <img src="img/icon.svg" alt="símbolo da onu" />
+          </button>
+
+          <!-- Botões de zoom: chamam funções que alteram tamanho do texto/escala -->
+          <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade">
+            <img src="img/lupa-.svg" alt="Lupa com um - no centro" />
+          </button>
+
+          <button onclick="zoommais()" class="funcaoesbarradeacessibilidade">
+            <img src="img/lupa+.svg" alt="Lupa com um + no centro" />
+          </button>
+
+          <!-- Botão de alternância de tema (claro/escuro).
+               - id "theme-toggle" é usado por alterarTemas.js para salvar preferência no localStorage -->
+          <button id="theme-toggle" class="theme-toggle">
+            <span id="icon" class="sun">☀️</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Banner principal com título e descrição.
+         - data-translate permite trocar texto conforme o idioma selecionado -->
+    <section class="banner">
+      <div class="banner-texto">
+        <h2>Descubra o futuro do aprendizado colaborativo!</h2>
+        <p>Na Study Plaza, você se conecta com estudantes como você, compartilha
+          materiais, participa de grupos e ainda
+          aprende de forma interativa com quizzes gerados por inteligência artificial.</p>
+      </div>
+
+      <!-- Imagem ilustrativa / mascote -->
+      <img src="img/ElfaEstudando2.png" alt="Mascote Elfa Estudando" />
+    </section>
+
+    <!-- Seção de funcionalidades em destaques: ícones + textos.
+         - Estrutura repetitiva facilita manutenção e tradução -->
+    <section class="funcionalidades-steps">
+      <h2>Funcionalidades em Destaque</h2>
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-users"></i></div>
+          <p>Grupos de estudo públicos e privados</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-file-pdf"></i></div>
+          <p>Compartilhamento de PDFs e links</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-comments"></i></div>
+          <p>Chat em tempo real</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-brain"></i></div>
+          <p>Quizzes com IA personalizada</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-laptop"></i></div>
+          <p>Acesso em qualquer dispositivo</p>
+        </div>
+        <div class="step">
+          <div class="step-icon"><i class="fas fa-book"></i></div>
+          <p>Sugestão de cursos dos nossos parceiros</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de benefícios com ícones -->
+    <section class="beneficios-lista">
+      <h2 id="benefits-title">Benefícios</h2>
+      <ul class="beneficios-animados">
+        <li><i class="fas fa-handshake"></i> <span>Aprendizado
+            colaborativo e personalizado</span></li>
+        <li><i class="fas fa-clock"></i> <span>Flexibilidade e autonomia
+            para estudar</span></li>
+        <li><i class="fas fa-magic"></i> <span>IA para reforço do aprendizado com
+            quizzes</span></li>
+        <li><i class="fas fa-graduation-cap"></i> <span>Sugestão de cursos
+            para acompanhamento</span></li>
+        <li><i class="fas fa-users-cog"></i> <span>Ambiente interativo e
+            inclusivo</span></li>
+      </ul>
+    </section>
+
+    <!-- Formulário de login (inicialmente oculto via CSS/JS).
+         - novalidate: validação customizada por JS em js/login.js
+         - aria-describedby aponta para área de erro geral -->
+    <section class="formLogin" aria-label="Formulário de Login">
+      <article class="login-container">
+        <button class="close-login" aria-label="Fechar login">&times;</button>
+        <h2 id="login-title">Bem-vindo ao Study Plaza</h2>
+
+        <form id="login-form" novalidate autocomplete="off" aria-describedby="form-error">
+          <label for="input-email" id="obrigatorio">Email:</label>
+          <input type="email" id="input-email" name="email" required placeholder="seu@email.com" aria-required="true" />
+          <div id="email-error" class="error-message" data-dynamic="true">
+            <p>O campo E-mail é obrigatório.</p>
+          </div>
+
+          <label for="input-password" id="obrigatorio">Senha:</label>
+          <input type="password" id="input-password" name="password" required minlength="6" placeholder="••••••••"
+            aria-required="true" />
+          <div id="password-error" class="error-message" data-dynamic="true">
+            <p>O campo Senha é obrigatória.</p>
+          </div>
+
+          <button type="submit" class="btnEntrar">Entrar</button>
+          <div id="form-error" class="error-message"></div>
+          <div id="password-error" class="error-message"></div>
+        </form>
+
+        <!-- Link para página de cadastro -->
+        <p><span>Não tem uma conta?</span> <a class="linkCadastro" href="cadastro.html">Cadastre-se aqui</a></p>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <section class="footer-container">
+      <article class="footer-section">
+        <div class="nomeLogo">
+          <img class="logoFooter" src="./img/Logo.svg" alt="Logo do site" />
+          <h3 class="textLogoFooter">Study Plaza</h3>
+        </div>
+        <p>Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em uma comunidade vibrante.</p>
+        <div class="social-icons">
+          <p> Quer conhecer um pouco mais de nós?
+            Conheça nosso
+
+            <a href="https://www.instagram.com/studyplaza_" aria-label="Instagram Study Plaza">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+        </p>
+      </article>
+    </section>
+    <p>&copy; <span id="anoAtual">2025</span> Study Plaza - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/geral.js"></script>
+  <script src="js/alterarTemas.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/acessibilidade.js"></script>
+  <script>window.gtranslateSettings = { "default_language": "pt", "native_language_names": true, "detect_browser_language": true, "languages": ["pt", "en", "es"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "inline", "float_switcher_open_direction": "bottom", "alt_flags": { "en": "usa", "pt": "brazil" } }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+  <!-- VLibras: plugin oficial para Libras. O widget abaixo instancia o assistente de Libras. -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    // Instancia o widget VLibras apontando para o app oficial.
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</body>
+
+</html>
