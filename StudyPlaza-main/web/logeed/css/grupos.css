@@ -1,0 +1,310 @@
+/* =========================
+   IMPORTAÇÃO DE TEMA
+========================= */
+@import url('style.css');
+
+/* =========================
+   BASE
+========================= */
+body {
+  background: var(--cor-Fundo);
+  color: var(--cor-Fonte);
+}
+
+
+.conteudo-grupos {
+  padding: 2rem 5% 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.busca-grupos,
+.card-grupo,
+.experiencia-grupos {
+  box-shadow: 0 10px 25px var(--sombra);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero-texto,
+.hero-texto p,
+.hero-texto h1 {
+  color: var(--cor-Fonte);
+}
+
+.grupos-hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Texto */
+.hero-texto .etiqueta {
+  display: inline-block;
+  background: rgba(106, 76, 147, 0.12);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-texto h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.hero-texto p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+/* Ações */
+.hero-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Botões */
+.btn-primario,
+.btn-secundario,
+.link-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-primario {
+  background: var(--efeitoBefore);
+  color: var(--branco);
+  box-shadow: 0 10px 25px rgba(35, 25, 66, 0.2);
+}
+
+.btn-primario:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(35, 25, 66, 0.28);
+}
+
+.btn-secundario {
+  background: rgba(106, 76, 147, 0.1);
+  color: var(--efeitoBefore);
+  border: 1px solid rgba(106, 76, 147, 0.2);
+}
+
+.btn-secundario:hover {
+  transform: translateY(-4px);
+  background: rgba(106, 76, 147, 0.2);
+}
+
+.link-secundario {
+  background: transparent;
+  color: var(--efeitoBefore);
+  gap: 0.4rem;
+}
+
+/* Ilustração */
+
+.hero-ilustracao {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-ilustracao img {
+  max-width: 320px;
+  width: 100%;
+}
+
+.hero-destaque {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 10%;
+  background: var(--gradient);
+  color: white;
+  padding: 1.2rem 1.8rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 35px rgba(106, 76, 147, 0.3);
+  text-align: center;
+}
+
+.hero-destaque strong {
+  font-size: 2.4rem;
+}
+
+.hero-destaque span {
+  font-size: 0.95rem;
+}
+
+/* =========================
+   BUSCA DE GRUPOS
+========================= */
+.busca-grupos {
+  background: var(--cor-Card);
+  color: var(--cor-Fonte);
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 2rem 5% 6rem;
+}
+
+.busca-conteudo h2 {
+  font-size: 1.9rem;
+}
+
+.busca-conteudo p {
+  margin: 2rem 0;
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+/* Formulário */
+.busca-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.campo-pesquisa {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(106, 76, 147, 0.08);
+  padding: 0.9rem 1.3rem;
+  border-radius: 1.4rem;
+}
+
+.campo-pesquisa {
+  background: var(--cor-Input);
+}
+
+.campo-pesquisa input {
+  color: var(--cor-Fonte);
+}
+
+.campo-pesquisa input::placeholder {
+  color: var(--cor-Fonte2);
+}
+
+/* =========================
+   CARDS DE GRUPOS
+========================= */
+.lista-grupos {
+  padding: 2rem;
+}
+
+.cards-grupos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-grupo {
+  background: var(--cor-Card);
+  color: var(--cor-Fonte);
+  padding: 2rem;
+  border-radius: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border: 1px solid rgba(106, 76, 147, 0.12);
+}
+
+.titulo-grupo {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 5%;
+  border-radius: 1.6rem;
+  background: var(--gradient);
+  color: var(--branco);
+}
+
+.titulo-grupo h3{
+  color: var(--cor-Fonte3);
+}
+
+
+/* =========================
+   CTA
+========================= */
+.cta-grupos {
+  background: var(--gradient);
+  padding: 3rem;
+  border-radius: 2rem;
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   SHOW TOAST
+========================= */
+
+
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 9999;
+}
+
+.toast {
+  opacity: 0;
+  transform: translateY(-20px);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background-color: #4caf50;
+}
+
+.toast.error {
+  background-color: #f44336;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 992px) {
+  main {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  main {
+    padding: 1.5rem;
+    gap: 3.5rem;
+  }
+}

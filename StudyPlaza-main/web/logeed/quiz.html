@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Interativo - StudyPlaza</title>
+  <meta name="description"
+    content="Teste seus conhecimentos com o quiz interativo da StudyPlaza. Acesse agora e descubra como aprender pode ser divertido!">
+  <meta name="keywords" content="quiz, conhecimento, estudo, interativo, educação, estudantes, aprendizado">
+  <meta name="author" content="StudyPlaza">
+  <link rel="icon" href="../img/Logo_Fundo_Roxa.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/quiz.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html" aria-label="Ir para a página inicial">
+        <img src="../img/Logo.svg" alt="Logo Study Plaza">
+        <h1>Study Plaza</h1>
+      </a>
+    </div>
+
+    <button class="hamburger" aria-expanded="false" aria-controls="menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <nav class="menu" id="menu-principal" aria-label="Menu principal">
+      <button class="fecharMenu" aria-label="Fechar menu" data-translate="menu.fechar">&times;</button>
+      <a href="grupos.html" class="linkMenu"><i class="fa-solid fa-people-group"></i> <span
+          data-translate="menu.grupos">Grupos</span></a>
+      <a href="painel.html" class="linkMenu"><i class="fa-solid fa-gauge-high"></i> <span
+          data-translate="menu.painel">Painel</span></a>
+      <a href="cursos.html" class="linkMenu"><i class="fa-solid fa-book"></i> <span
+          data-translate="menu.cursos">Cursos</span></a>
+      <a href="quiz.html" class="linkMenu" id="ativo"><i class="fa-solid fa-trophy"></i> <span
+          data-translate="menu.quiz">Quiz</span></a>
+      <a href="sobrenos.html" class="linkMenu"><i class="fa-solid fa-users"></i> <span
+          data-translate="menu.sobrenos">Sobre Nós</span></a>
+      <a href="chat.html" class="linkMenu"><i class="fa-solid fa-comments"></i> Chat</a>
+      <a href="perfil.html" class="linkMenu perfil-link"><i class="fa-solid fa-circle-user"></i> <span
+          data-translate="menu.perfil">Perfil</span></a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <section>
+      <article>
+        <!-- Container VLibras -->
+        <div vw class="enabled">
+          <div vw-access-button class="active"></div>
+          <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+          <button id="botaobarra" onclick="ativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+        </div>
+
+        <div id="barra" class="divbarradeacessibilidade">
+          <button onclick="desativarbarra()" class="botaoativacaobarra">
+            <img src="../img/icon.svg" alt="símbolo da onu" />
+          </button>
+
+          <button onclick="zoommenos()" class="funcaoesbarradeacessibilidade">
+            <img src="../img/lupa-.svg" alt="Lupa com um - no centro" />
+          </button>
+
+          <button onclick="zoommais()" class="funcaoesbarradeacessibilidade">
+            <img src="../img/lupa+.svg" alt="Lupa com um + no centro" />
+          </button>
+
+          <!-- 🔘 Botão do switch -->
+          <button id="theme-toggle" class="theme-toggle">
+            <span id="icon" class="sun">☀️</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section class="intro-quiz" aria-labelledby="intro-title">
+      <h1 id="intro-title" data-translate="quiz.intro.title">Descubra como é fácil aprender com a Study Plaza!</h1>
+      <p data-translate="quiz.intro.text">Esse quiz é apenas uma demonstração do que você terá acesso após fazer login.
+        Nossos quizzes são personalizados
+        com base nos seus estudos. Cadastre-se para desbloquear todo o potencial da plataforma!</p>
+    </section>
+
+    <section aria-labelledby="quiz-title">
+      <h2 id="quiz-title" data-translate="quiz.teste.title">Teste seu conhecimento</h2>
+      <div class="quiz-container" aria-live="polite">
+        <div class="question" id="question" data-translate="quiz.carregando">Carregando pergunta...</div>
+        <div class="options" id="options"></div>
+        <div class="result" id="result"></div>
+      </div>
+      <div class="quiz-progress">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <div class="nomeLogo">
+          <img class="logoFooter" src="../img/Logo.svg" alt="Logo do site" />
+          <h2 class="textLogoFooter">Study Plaza</h2>
+        </div>
+        <p data-translate="footer.texto">Transformando o jeito como você estuda. Conecte-se, compartilhe e aprenda em
+          uma comunidade vibrante.</p>
+      </div>
+
+      <div class="footer-section" id="linksRapidos">
+        <h3 data-translate="footer.links.title">Links Rápidos</h3>
+        <nav aria-label="Links rápidos do rodapé">
+          <ul>
+            <li><i class="fa-solid fa-house"></i><a href="index.html"><span
+                  data-translate="footer.links.inicio">Início</span></a></li>
+            <li><i class="fa-solid fa-book"></i><a href="cursos.html"><span
+                  data-translate="footer.links.cursos">Cursos</span></a>
+            </li>
+            <li><i class="fa-solid fa-trophy"></i><a href="quiz.html"><span
+                  data-translate="footer.links.quiz">Quiz</span></a></li>
+            <li><i class="fa-solid fa-users"></i><a href="sobrenos.html"><span
+                  data-translate="footer.links.sobrenos">Sobre Nós</span></a>
+            </li>
+            <li><i class="fa-solid fa-people-group"></i><a href="grupos.html">Grupos</a></li>
+            <li><i class="fa-solid fa-gauge-high"></i><a href="painel-grupos.html">Painel</a></li>
+            <li><i class="fa-solid fa-circle-user"></i><a href="perfil.html">Perfil</a></li>
+            <li><i class="fa-solid fa-comments"></i><a href="chat.html">Chat</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-section">
+        <h3 data-translate="footer.info.title">Informações</h3>
+        <ul>
+          <li><a href="#" data-translate="footer.privacidade">Política de Privacidade</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/studyplaza_/?utm_source=ig_web_button_share_sheet"
+            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p data-translate="footer.direitos">&copy; 2025 Study Plaza - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+  <script src="../js/quiz.js" defer></script>
+  <script src="../js/alterarTemas.js"></script>
+  <script src="js/geral.js"></script>
+  <script src="../js/acessibilidade.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/translate.js"></script>
+</body>
+
+</html>

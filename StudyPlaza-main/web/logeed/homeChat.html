@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Entre no Study Chat e converse com seu grupo de estudos.">
+
+  <meta name="keywords" content="Study Plaza, chat, estudo, grupo de estudos">
+
+  <meta name="author" content="Study Plaza">
+
+  <title>Study Plaza - Study Chat</title>
+
+  <link rel="icon" href="/img/Logo_Fundo_Roxa.png" type="image/png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="/logeed/css/homeChat.css">
+
+  <link rel="stylesheet" href="/css/btnAcessibilidade.css">
+
+  <script src="/js/acessibilidade.js" defer></script>
+  <script src="/js/alterarTemas.js" defer></script>
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+         ACESSIBILIDADE
+         ===================================================== -->
+
+  <section class="accessibility-container">
+
+    <article>
+
+      <div id="barra-acessibilidade" class="divativacaobarradeacessibilidade">
+
+        <button id="botaobarra" type="button" onclick="ativarbarra()" class="botaoativacaobarra"
+          aria-label="Abrir opções de acessibilidade">
+
+          <img src="../img/icon.svg" alt="Acessibilidade">
+
+        </button>
+
+      </div>
+
+
+      <div id="barra" class="divbarradeacessibilidade">
+
+        <button type="button" onclick="desativarbarra()" class="botaoativacaobarra"
+          aria-label="Fechar opções de acessibilidade">
+
+          <img src="../img/icon.svg" alt="Acessibilidade">
+
+        </button>
+
+
+        <button type="button" onclick="zoommenos()" class="funcaoesbarradeacessibilidade" aria-label="Diminuir zoom">
+
+          <img src="../img/lupa-.svg" alt="Diminuir zoom">
+
+        </button>
+
+
+        <button type="button" onclick="zoommais()" class="funcaoesbarradeacessibilidade" aria-label="Aumentar zoom">
+
+          <img src="../img/lupa+.svg" alt="Aumentar zoom">
+
+        </button>
+
+
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Alternar tema">
+
+          <span id="icon" class="sun">
+            ☀️
+          </span>
+
+        </button>
+
+      </div>
+
+    </article>
+
+  </section>
+
+
+  <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================== -->
+
+  <main class="login-container">
+
+    <section class="login-card" aria-labelledby="chat-title">
+
+      <!-- LOGO -->
+
+      <div class="logo-area">
+
+        <div class="logo-icon">
+
+          <i class="fa-solid fa-comments" aria-hidden="true"></i>
+
+        </div>
+
+
+        <h1 id="chat-title">
+          Study Chat
+        </h1>
+
+
+        <p>
+          Converse, compartilhe ideias e estude
+          junto com seu grupo.
+        </p>
+
+      </div>
+
+
+      <!-- FORMULÁRIO -->
+
+      <form id="chat-login-form">
+
+        <div class="input-group">
+
+          <label for="username">
+
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+
+            Seu nome
+
+          </label>
+
+
+          <input type="text" id="username" placeholder="Digite seu nome..." autocomplete="name" maxlength="50" required>
+
+        </div>
+
+
+        <!-- GRUPO -->
+
+        <div class="group-info">
+
+          <i class="fa-solid fa-users" aria-hidden="true"></i>
+
+
+          <div>
+
+            <span>
+              Grupo atual
+            </span>
+
+            <strong>
+              Grupo de Estudos
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- BOTÃO -->
+
+        <button type="submit" class="enter-button">
+
+          Entrar no chat
+
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+        </button>
+
+      </form>
+
+
+      <!-- VOLTAR -->
+
+      <a href="#" id="back-button" class="back-button">
+
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+
+        Voltar
+
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+  <script>
+
+    const form =
+      document.getElementById("chat-login-form");
+
+    const usernameInput =
+      document.getElementById("username");
+
+
+    /*
+     * Entrada no chat
+     */
+
+    form.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
+
+
+        const nome =
+          usernameInput.value.trim();
+
+
+        /*
+         * Não permite entrar
+         * sem informar um nome.
+         */
+
+        if (!nome) {
+
+          usernameInput.focus();
+
+          return;
+        }
+
+
+        /*
+         * Dados do usuário.
+         *
+         * O ID ficará null porque,
+         * neste momento, o usuário
+         * escolhe apenas o nome.
+         */
+
+        const usuario = {
+
+          nome: nome,
+
+          id: null
+
+        };
+
+
+        /*
+         * Salva o usuário.
+         */
+
+        localStorage.setItem(
+          "studyplaza-user",
+          JSON.stringify(usuario)
+        );
+
+
+        /*
+         * Entra no chat.
+         */
+
+        window.location.href =
+          "/logeed/chat.html";
+
+      }
+    );
+
+
+    /*
+     * Botão voltar.
+     */
+
+    document
+      .getElementById("back-button")
+      .addEventListener(
+        "click",
+        function (event) {
+
+          event.preventDefault();
+
+          history.back();
+
+        }
+      );
+
+  </script>
+
+</body>
+
+</html>

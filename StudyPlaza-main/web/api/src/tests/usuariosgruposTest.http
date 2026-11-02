@@ -1,0 +1,42 @@
+
+### Variables 
+@apiurl = http://localhost:3500/api
+@tableName = usuarios_grupos
+
+### GET usuarios_grupos
+GET {{apiurl}}/{{tableName}} HTTP/1.1
+
+###
+GET {{apiurl}}/{{tableName}}/1
+
+### GET todos os grupos que o usuário 1 participa
+GET {{apiurl}}/{{tableName}}/todosgruposusuarioparticipa/3
+Accept: application/json
+
+### GET Verificar papel do usuário
+GET {{apiurl}}/{{tableName}}/papel/3/5
+Accept: application/json
+
+###
+POST {{apiurl}}/{{tableName}}
+Content-Type: application/json; charset=utf-8
+
+{
+    "id_usuario": 1,
+    "id_grupo": 1,
+    "papel": "admin"
+ }
+
+###
+
+DELETE {{apiurl}}/{{tableName}}/5/1
+
+###
+PUT {{apiurl}}/{{tableName}}/1
+Content-Type: application/json; charset=utf-8
+
+{
+    "id_usuario": 1,
+    "id_grupo": 1,
+    "papel": "teste atualizado"
+ }

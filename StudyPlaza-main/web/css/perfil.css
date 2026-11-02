@@ -1,0 +1,308 @@
+.perfil-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--cor-fundo);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------- */
+/* Cabeçalho do Perfil (Card principal) */
+/* --------------------------------- */
+.perfil-header-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--cor-borda);
+}
+
+.perfil-avatar {
+    position: relative;
+    width: 130px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--cor-primaria);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.perfil-avatar i {
+    font-size: 50px;
+    color: var(--cor-texto-claro);
+}
+
+.btn-mudar-foto {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--cor-destaque);
+    /* Cor de destaque para o botão */
+    color: #333;
+    border: 3px solid var(--cor-fundo-secundaria);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfil-info-basica h1 {
+    margin: 0 0 5px 0;
+    font-size: 2em;
+    color: var(--cor-primaria);
+}
+
+.perfil-username {
+    font-size: 1.1em;
+    color: var(--cor-texto-secundaria);
+    margin: 0 0 10px 0;
+}
+
+.perfil-membro-desde {
+    font-size: 0.9em;
+    color: var(--cor-texto-secundaria);
+    margin: 0 0 15px 0;
+}
+
+.perfil-badges .badge {
+    display: inline-block;
+    background-color: var(--cor-borda);
+    color: var(--cor-texto-principal);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    margin-right: 10px;
+}
+
+.perfil-badges .badge i {
+    margin-right: 5px;
+}
+
+/* --------------------------------- */
+/* Navegação do Perfil (Abas) */
+/* --------------------------------- */
+.perfil-nav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.perfil-nav-item {
+    text-decoration: none;
+    color: var(--cor-texto-secundaria);
+    padding: 10px 15px;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+    font-weight: 500;
+}
+
+.perfil-nav-item i {
+    margin-right: 8px;
+}
+
+.perfil-nav-item:hover {
+    color: var(--cor-primaria);
+}
+
+.perfil-nav-item.active {
+    color: var(--cor-primaria);
+    border-bottom: 3px solid var(--cor-primaria);
+    font-weight: bold;
+}
+
+/* --------------------------------- */
+/* Conteúdo das Seções */
+/* --------------------------------- */
+.perfil-content {
+    padding: 10px 0;
+}
+
+.perfil-section {
+    display: none;
+    /* Ocultar por padrão, JS irá mostrar/esconder */
+    animation: fadeIn 0.5s ease-out;
+}
+
+.perfil-section.active-section {
+    display: block;
+}
+
+/* --------------------------------- */
+/* Estatísticas Grid */
+/* --------------------------------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: var(--cor-fundo-principal);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card i {
+    font-size: 2em;
+    color: var(--cor-primaria);
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    margin: 5px 0;
+    font-size: 1em;
+    color: var(--cor-texto-secundaria);
+}
+
+.stat-card p {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--cor-texto-principal);
+}
+
+/* Placeholder do Gráfico */
+.chart-area {
+    margin-top: 30px;
+}
+
+.placeholder-chart {
+    height: 250px;
+    background-color: var(--cor-fundo-principal);
+    border: 1px dashed var(--cor-borda);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-texto-secundaria);
+    font-style: italic;
+}
+
+/* --------------------------------- */
+/* Formulário de Configurações */
+/* --------------------------------- */
+.config-form .form-group {
+    margin-bottom: 15px;
+}
+
+.config-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--cor-texto-principal);
+}
+
+.config-form input,
+.config-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-principal);
+    font-size: 1em;
+}
+
+.config-form input:focus,
+.config-form select:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+.btn-primario {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-primario:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+.btn-primario i {
+    margin-right: 8px;
+}
+
+/* --------------------------------- */
+/* Histórico */
+/* --------------------------------- */
+.historico-list {
+    list-style: none;
+    padding: 0;
+}
+
+.historico-list li {
+    background-color: var(--cor-fundo-principal);
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--cor-primaria);
+    color: var(--cor-texto-principal);
+    display: flex;
+    align-items: center;
+}
+
+.historico-list li i {
+    color: var(--cor-primaria);
+    margin-right: 15px;
+    font-size: 1.1em;
+}
+
+
+/* =================================================== */
+/* Media Queries (Responsividade) */
+/* =================================================== */
+@media (max-width: 768px) {
+    .perfil-header-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .perfil-avatar {
+        margin-bottom: 10px;
+    }
+
+    .perfil-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .perfil-nav-item {
+        flex-grow: 1;
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        /* 2 colunas em telas menores */
+    }
+}
+
+@media (max-width: 500px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        /* 1 coluna em telas muito pequenas */
+    }
+}

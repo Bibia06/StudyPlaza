@@ -1,0 +1,111 @@
+body {
+  font-family: var(--font-family);
+  margin: 0;
+}
+
+.chat-section {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  background: var(--chat-fundo);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.chat-users {
+  min-width: 180px;
+  border-right: 1px solid #eee;
+  padding-right: 1rem;
+}
+
+.chat-users h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--cor-Fonte);
+}
+
+.chat-users ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chat-users li {
+  margin-bottom: 0.7rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--roxo-claro);
+  border-radius: 6px;
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex: 1;
+  min-height: 250px;
+  max-height: 350px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  display: flex;       
+  flex-direction: column;
+}
+
+.chat-messages > * { 
+    max-width: 60%; 
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border-radius: 18px; 
+    line-height: 1.4;
+    word-wrap: break-word; 
+}
+
+.my-message {
+    /* Estilo para mensagens próprias (direita) */
+    align-self: flex-end; 
+    background-color: var(--efeitoBefore); 
+    color: white; 
+}
+
+.other-message {
+    /* Estilo para mensagens de outros (esquerda) */
+    align-self: flex-start; 
+    background-color: #FFFFFF;
+    border: 1px solid #ddd;
+}
+
+.chat-input-area {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.chat-input-area button {
+  background: var(--roxo-claro);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-input-area button:hover {
+  background: var(--hoverEscuro);
+}

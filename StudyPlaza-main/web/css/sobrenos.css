@@ -1,0 +1,236 @@
+/* =========================
+   IMPORTS
+========================= */
+@import url('style.css');
+
+/* =========================
+   SEÇÃO SOBRE
+========================= */
+.sobre-nos {
+    display: flex;
+    justify-content: center;
+
+    padding: 1rem 1.5rem;
+    background: var(--cor-Fundo);
+}
+
+.intro-sobre {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* TEXTO */
+.texto-sobre {
+    flex: 1;
+    min-width: 280px;
+}
+
+.texto-sobre h2 {
+    margin-bottom: 10px;
+
+    font-size: 2rem;
+    color: var(--cor-Fonte);
+}
+
+.texto-sobre p {
+    text-align: justify;
+}
+
+/* IMAGEM */
+.imagem-sobre {
+    flex: 1;
+    min-width: 280px;
+}
+
+.imagem-sobre img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* =========================
+   INTEGRANTES
+========================= */
+.integrantes {
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+.cards-integrantes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+
+    margin: 1rem 0 5rem;
+}
+
+/* CARD */
+.card-integrante {
+    width: 220px;
+    flex-shrink: 0;
+
+    padding: 20px;
+    border-radius: 16px;
+
+    background: var(--roxo-menu);
+    box-shadow: 0 5px 15px var(--sombra);
+
+    transition: 0.3s ease;
+}
+
+.card-integrante:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--sombra);
+}
+
+.card-integrante img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.card-integrante h3 {
+    margin-top: 10px;
+    color: var(--cor-Fundo);
+}
+
+/* BOTÃO */
+.card-integrante button {
+    margin-top: 10px;
+    padding: 8px 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    cursor: pointer;
+
+    background: var(--roxo-menu);
+    color: #fff;
+
+    transition: 0.3s;
+}
+
+.card-integrante button:hover {
+    background: var(--hoverEscuro);
+}
+
+/* =========================
+   MODAL
+========================= */
+.modal-integrante {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+
+.modal-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 16px;
+
+    background: var(--cor-Fundo);
+    text-align: justify;
+
+    position: relative;
+}
+
+
+.modal-conteudo {
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-integrante.active .modal-conteudo {
+    transform: scale(1);
+}
+
+/* IMAGEM DO MODAL */
+.modal-conteudo .mini-img {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 12px;
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
+
+/* BOTÃO FECHAR */
+.fechar-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 18px;
+    color: var(--cor-Fonte);
+
+    cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .intro-sobre {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .imagem-sobre,
+    .texto-sobre {
+        min-width: 100%;
+    }
+
+    .cards-integrantes {
+        gap: 20px;
+    }
+
+    .card-integrante {
+        width: 45%;
+        max-width: 300px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .card-integrante {
+        width: 100%;
+        max-width: none;
+    }
+
+    .modal-conteudo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .modal-conteudo .mini-img {
+        margin-bottom: 15px;
+    }
+}

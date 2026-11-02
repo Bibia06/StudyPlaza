@@ -1,0 +1,56 @@
+### Variables
+@apiurl = http://localhost:3500/api
+@tableName = grupos
+
+### GET grupos ativos do usuário
+GET {{apiurl}}/grupos/gruposAtivosUsuario/2
+Accept: application/json
+
+### GET total de grupos
+GET {{apiurl}}/grupos/totalGrupos
+Accept: application/json
+
+### GET todos os grupos com membros
+GET {{apiurl}}/grupos/comMembros
+Accept: application/json
+
+
+### GET todos os grupos com membros
+GET {{apiurl}}/grupos/membros/
+Accept: application/json
+
+### GET todos os grupos do usuário 1
+GET {{apiurl}}/grupos/todosgruposusuario/1
+Accept: application/json
+
+### GET todos os grupos
+GET {{apiurl}}/{{tableName}}
+Accept: application/json
+
+### GET grupo por id
+GET {{apiurl}}/{{tableName}}/1
+Accept: application/json
+
+### POST criar grupo
+POST {{apiurl}}/{{tableName}}
+Content-Type: application/json; charset=utf-8
+
+{
+    "nome": "Teste 2",
+    "descricao": "Teste de grupo 2, verificação de adicionamento de um membro no grupo.",
+    "privado": 1,
+    "criado_por": 1
+}
+
+### DELETE grupo id 2
+DELETE {{apiurl}}/{{tableName}}/2
+
+### PUT atualizar grupo id 1
+PUT {{apiurl}}/{{tableName}}/1
+Content-Type: application/json; charset=utf-8
+
+{
+    "nome": "Grupo Atualizado",
+    "descricao": "Descrição atualizada",
+    "privado": 0
+}
