@@ -14,7 +14,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import Logo from '../../../assets/images/Logo.svg';
 import api from '@/services/api';
 
-import {createStyles}  from '@/styles/cursos';
+import {createStyles}  from '@/styles/tabs/cursos';
 
 export interface Curso {
   id: number;

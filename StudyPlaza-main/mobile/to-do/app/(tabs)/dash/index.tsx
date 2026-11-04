@@ -20,7 +20,7 @@ import Logo from '../../../assets/images/Logo.svg';
 import { useAuth } from '../../../contexts/AuthContext';
 import api from '@/services/api';
 
-import { createStyles } from '@/styles/dash';
+import { createStyles } from '@/styles/tabs/dash';
 
 interface IGrupo {
   id: number;
@@ -327,7 +327,7 @@ export default function Dashboard() {
             style={styles.btnPrimaryHero}
             onPress={() => router.push('/(tabs)/cursos' as any)}
           >
-            <Text style={styles.btnPrimaryHeroText}>Ir para o painel</Text>
+            <Text style={styles.btnPrimaryHeroText}>Acessar cursos</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -396,18 +396,18 @@ export default function Dashboard() {
                 {ehCriador ? (
                   <View style={{ flexDirection: 'row', gap: 10 }}>
                     <TouchableOpacity
-                      style={[styles.btnParticipar, { flex: 1, backgroundColor: '#3B82F6' }]}
+                      style={[styles.btnParticipar, { flex: 1, backgroundColor: theme.roxoPrincipal }]}
                       onPress={() => abrirModalMembros(grupo)}
                     >
-                      <FontAwesome6 name="users-gear" size={14} color="#FFF" style={{ marginRight: 6 }} />
+                      <FontAwesome6 name="users-gear" size={10} color="#FFF" style={{ marginRight: 6 }} />
                       <Text style={[styles.btnParticiparText, { color: '#FFF' }]}>Membros</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
-                      style={[styles.btnParticipar, { flex: 1, backgroundColor: '#EF4444' }]}
+                      style={[styles.btnParticipar, { flex: 1, backgroundColor: theme.roxoPrincipal }]}
                       onPress={() => handleExcluirGrupo(grupo)}
                     >
-                      <FontAwesome6 name="trash-can" size={14} color="#FFF" style={{ marginRight: 6 }} />
+                      <FontAwesome6 name="trash-can" size={10} color="#FFF" style={{ marginRight: 6 }} />
                       <Text style={[styles.btnParticiparText, { color: '#FFF' }]}>Excluir</Text>
                     </TouchableOpacity>
                   </View>

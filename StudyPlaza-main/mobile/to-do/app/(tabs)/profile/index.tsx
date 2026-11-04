@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useAppTheme } from '../../../hooks/use-theme-context';
-import { createStyles } from '@/styles/profile';
+import { createStyles } from '@/styles/tabs/profile';
 import { useAuth } from '../../../contexts/AuthContext';
 
 // Lista de avatares pré-definidos usando ícones nativos do FontAwesome6
